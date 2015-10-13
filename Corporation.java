@@ -11,8 +11,8 @@ public class Corporation {
 		return clicks;
 	}
 	
-	public void setClicks(int clicks) {
-		this.clicks = clicks;
+	public void changeClicks() {
+		clicks -= 1;
 	}
 
 }

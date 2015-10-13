@@ -13,8 +13,7 @@ public class CorporationTest {
 	
 	public void setClickTest() {
 		Corporation corp = new Corporation();
-		corp.setClicks(2);
+		corp.changeClicks();
 		assertEquals(2,corp.getClicks());
 	}
-
 }
