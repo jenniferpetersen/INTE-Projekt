@@ -21,15 +21,12 @@ public class Card {
 	private boolean uniqueness;
 	private boolean limited;
 	private String cyclenumber;
-	private String ancurLink;
-	private String url;
-	private String imagesrc;
+
 	
 	public Card(String code, String title, String type, String typeCode, String subTypeCode,
 			String text, int cost, String faction, String factionCode, String factionLetter, int factionCost, 
 			String flavor, String illustrator, String number, String quantity, String setName, 
-			String setCode, boolean uniqueness, boolean limited, String cyclenumber, String ancurLink,
-			String url, String imagesrc) {
+			String setCode, boolean uniqueness, boolean limited, String cyclenumber) {
 		
 		this.code = code;
 		this.title = title;
@@ -51,9 +48,7 @@ public class Card {
 		this.uniqueness = uniqueness;
 		this.limited = limited;
 		this.cyclenumber = cyclenumber;
-		this.ancurLink = ancurLink;
-		this.url = url;
-		this.imagesrc = imagesrc;
+
 		
 	}
 
@@ -215,30 +210,6 @@ public class Card {
 
 	public void setCyclenumber(String cyclenumber) {
 		this.cyclenumber = cyclenumber;
-	}
-
-	public String getAncurLink() {
-		return ancurLink;
-	}
-
-	public void setAncurLink(String ancurLink) {
-		this.ancurLink = ancurLink;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public String getImagesrc() {
-		return imagesrc;
-	}
-
-	public void setImagesrc(String imagesrc) {
-		this.imagesrc = imagesrc;
 	}
 	
 	@Override

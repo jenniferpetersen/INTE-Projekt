@@ -106,7 +106,7 @@ public class CardTest {
 		Gson gson = new Gson();
 		Card[] card = gson.fromJson(json, Card[].class);
 		assertEquals("core", card[0].getSetCode());
-	}@Test
+	}@Test 
 	public void testUniqueness() throws Exception{
 		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
 		Gson gson = new Gson();
@@ -126,24 +126,4 @@ public class CardTest {
 		assertEquals("1", card[0].getCyclenumber());
 	}
 	
-	//*****ANCUR LINK, URL AND IMAGESRC ARE UNTESTABLE DUE TO INVALID TEXTS*****
-	/*public void testAncurLink() throws Exception{
-		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
-		Gson gson = new Gson();
-		Card[] card = gson.fromJson(json, Card[].class);
-		assertEquals("Archived Memories", card[0].getAncurLink());
-	}*/
-	/*public void testUrl() throws Exception{
-		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
-		Gson gson = new Gson();
-		Card[] card = gson.fromJson(json, Card[].class);
-		assertEquals("http:\/\/netrunnerdb.com\/en\/card\/01058", card[0].getUrl());
 	}
-*/	/*public void testImagesrc() throws Exception{
-		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
-		Gson gson = new Gson();
-		Card[] card = gson.fromJson(json, Card[].class);
-		assertEquals("\/bundles\/netrunnerdbcards\/images\/cards\/en\/01058.png", card[0].getImagesrc());
-	}*/
-
-}
