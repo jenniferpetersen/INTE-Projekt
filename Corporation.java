@@ -4,11 +4,13 @@ public class Corporation {
 	private int clicks;
 	private int credits;
 	private int agendaPoints;
+	private int maxHandSize;
 	
 	public Corporation() {
 		clicks = 3;
 		credits = 5;
 		agendaPoints = 0;
+		maxHandSize = 5;
 	}
 	
 	public int getClicks() {
@@ -37,5 +39,19 @@ public class Corporation {
 	
 	public int getAgendaPoints() {
 		return agendaPoints;
+	}
+	
+	public void setMaxHandSize(int maxHandSize) {
+		if (maxHandSize < 0) {
+			throw new IllegalArgumentException();
+		}
+		
+		else {
+			this.maxHandSize = maxHandSize;
+		}
+	}
+	
+	public int getMaxHandSize() {
+		return maxHandSize;
 	}
 }
