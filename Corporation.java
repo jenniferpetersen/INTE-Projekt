@@ -6,6 +6,9 @@ public class Corporation {
 	private int agendaPoints;
 	private int maxHandSize;
 	
+	private boolean winner = false;
+	private boolean turnOver = false;
+	
 	public Corporation() {
 		clicks = 3;
 		credits = 5;
@@ -17,8 +20,19 @@ public class Corporation {
 		return clicks;
 	}
 	
-	public void changeClicks() {
+	public void useClick() {
 		clicks -= 1;
+		if (clicks == 0) {
+			turnOver = true;
+		}
+	}
+	
+	public boolean getWinner() {
+		return winner;
+	}
+	
+	public boolean getTurnOver() {
+		return turnOver;
 	}
 	
 	public int getCredits() {
@@ -26,11 +40,21 @@ public class Corporation {
 	}
 	
 	public void gainCredits(int change) {
-		credits += change;
+		if (credits <= 0) {
+			throw new IllegalArgumentException();
+		}
+		else {
+			credits += change;
+		}
 	}
 
 	public void loseCredits(int change) {
-		credits -= change;
+		if (credits <= 0) {
+			throw new IllegalArgumentException();
+		}
+		else {
+			credits -= change;
+		}
 	}
 	
 	public void addAgendaPoints(int agendaPoints) {
@@ -40,6 +64,10 @@ public class Corporation {
 		
 		else {
 			this.agendaPoints += agendaPoints;
+		}
+		if (this.agendaPoints >= 7) {
+			//VINST!!!!
+			winner = true;
 		}
 	}
 	
