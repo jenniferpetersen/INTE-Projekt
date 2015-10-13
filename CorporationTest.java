@@ -16,4 +16,8 @@ public class CorporationTest {
 		corp.changeClicks();
 		assertEquals(2,corp.getClicks());
 	}
+	
+	public void getCreditsTest() {
+		assertEquals(5,new Corporation().getCredits());
+	}
 }
