@@ -20,5 +20,12 @@ public class Corporation {
 	public int getCredits() {
 		return credits;
 	}
+	
+	public void gainCredits(int change) {
+		credits += change;
+	}
 
+	public void loseCredits(int change) {
+		credits -= change;
+	}
 }
