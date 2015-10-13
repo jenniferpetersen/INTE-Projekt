@@ -3,10 +3,12 @@ package saker;
 public class Corporation {
 	private int clicks;
 	private int credits;
+	private int agendaPoints;
 	
 	public Corporation() {
 		clicks = 3;
 		credits = 5;
+		agendaPoints = 0;
 	}
 	
 	public int getClicks() {
@@ -27,5 +29,13 @@ public class Corporation {
 
 	public void loseCredits(int change) {
 		credits -= change;
+	}
+	
+	public void addAgendaPoints(int agendaPoints) {
+		this.agendaPoints += agendaPoints;
+	}
+	
+	public int getAgendaPoints() {
+		return agendaPoints;
 	}
 }

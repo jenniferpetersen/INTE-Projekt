@@ -32,4 +32,15 @@ public class CorporationTest {
 		corp.loseCredits(4);
 		assertEquals(1, corp.getCredits());
 	}
+	
+	public void agendaPointsTest() {
+		assertEquals(0, new Corporation().getAgendaPoints());
+		
+		Corporation corp = new Corporation();
+		corp.addAgendaPoints(2);
+		assertEquals(2, corp.getAgendaPoints());
+		
+		corp.addAgendaPoints(2);
+		assertEquals(4, corp.getAgendaPoints());
+	}
 }
