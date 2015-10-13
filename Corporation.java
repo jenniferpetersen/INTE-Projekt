@@ -2,13 +2,30 @@ package saker;
 
 public class Corporation {
 	private int clicks;
+	private int credits;
 	
-	public Corporation(int clicks) {
-		this.clicks = clicks;
+	public Corporation() {
+		clicks = 3;
+		credits = 5;
 	}
 	
 	public int getClicks() {
-		return 3;
+		return clicks;
+	}
+	
+	public void changeClicks() {
+		clicks -= 1;
+	}
+	
+	public int getCredits() {
+		return credits;
+	}
+	
+	public void gainCredits(int change) {
+		credits += change;
 	}
 
+	public void loseCredits(int change) {
+		credits -= change;
+	}
 }
