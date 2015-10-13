@@ -3,12 +3,16 @@ package saker;
 public class Corporation {
 	private int clicks;
 	
-	public Corporation(int clicks) {
-		this.clicks = clicks;
+	public Corporation() {
+		clicks = 3;
 	}
 	
 	public int getClicks() {
-		return 3;
+		return clicks;
+	}
+	
+	public void setClicks(int clicks) {
+		this.clicks = clicks;
 	}
 
 }

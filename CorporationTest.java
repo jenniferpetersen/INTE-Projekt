@@ -7,8 +7,14 @@ import org.junit.Test;
 public class CorporationTest {
 
 	@Test
-	public void Clicktest() {
-		assertEquals(2,new Corporation(2).getClicks());
+	public void getClickTest() {
+		assertEquals(3,new Corporation().getClicks());
+	}
+	
+	public void setClickTest() {
+		Corporation corp = new Corporation();
+		corp.setClicks(2);
+		assertEquals(2,corp.getClicks());
 	}
 
 }
