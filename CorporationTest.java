@@ -14,10 +14,10 @@ public class CorporationTest {
 	@Test
 	public void setClickTest() {
 		Corporation corp = new Corporation();
-		corp.changeClicks();
+		corp.useClick();
 		assertEquals(2,corp.getClicks());
 	}
-	
+		
 	@Test
 	public void getCreditsTest() {
 		assertEquals(5,new Corporation().getCredits());
@@ -44,15 +44,22 @@ public class CorporationTest {
 		Corporation corp = new Corporation();
 		corp.addAgendaPoints(2);
 		assertEquals(2, corp.getAgendaPoints());
+		assertFalse(corp.getWinner());
 		
 		corp.addAgendaPoints(2);
 		assertEquals(4, corp.getAgendaPoints());
+		assertFalse(corp.getWinner());
+		
+		corp.addAgendaPoints(3);
+		assertEquals(7, corp.getAgendaPoints());
+		assertTrue(corp.getWinner());
 	}	
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void agendaPointsTestNegative() {
 		new Corporation().addAgendaPoints(-1);
 	}
+	
 	
 	@Test
 	public void maxHandSizeTest() {
