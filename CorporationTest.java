@@ -47,6 +47,11 @@ public class CorporationTest {
 		
 		corp.addAgendaPoints(2);
 		assertEquals(4, corp.getAgendaPoints());
+	}	
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void agendaPointsTestNegative() {
+		new Corporation().addAgendaPoints(-1);
 	}
 	
 	@Test
@@ -63,6 +68,5 @@ public class CorporationTest {
 	public void maxHandSizeTestNegative() {
 		Corporation corp = new Corporation();
 		corp.setMaxHandSize(-1);
-		
 	}
 }

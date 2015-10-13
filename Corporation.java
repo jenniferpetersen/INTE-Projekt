@@ -34,7 +34,13 @@ public class Corporation {
 	}
 	
 	public void addAgendaPoints(int agendaPoints) {
-		this.agendaPoints += agendaPoints;
+		if (agendaPoints < 0) {
+			throw new IllegalArgumentException();
+		}
+		
+		else {
+			this.agendaPoints += agendaPoints;
+		}
 	}
 	
 	public int getAgendaPoints() {
