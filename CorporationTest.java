@@ -12,10 +12,17 @@ public class CorporationTest {
 	}
 	
 	@Test
-	public void setClickTest() {
+	public void useClickTest() {
 		Corporation corp = new Corporation();
 		corp.useClick();
 		assertEquals(2,corp.getClicks());
+		assertFalse(corp.getTurnOver());
+		
+		corp.useClick();
+		assertFalse(corp.getTurnOver());
+		
+		corp.useClick();
+		assertTrue(corp.getTurnOver());
 	}
 		
 	@Test

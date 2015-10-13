@@ -31,6 +31,10 @@ public class Corporation {
 		return winner;
 	}
 	
+	public boolean getTurnOver() {
+		return turnOver;
+	}
+	
 	public int getCredits() {
 		return credits;
 	}
