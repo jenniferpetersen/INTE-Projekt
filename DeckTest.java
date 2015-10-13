@@ -25,7 +25,7 @@ public class DeckTest {
 		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/02110");
 		Gson gson = new Gson();
 		Card[] card = gson.fromJson(json, Card[].class);
-		CorpDeck corpDeck = new CorpDeck("tryhard");
+		CorpDeck corpDeck = new CorpDeck();
 		corpDeck.addCard(card, 1);
 		assertEquals(1, corpDeck.getDeckOfCards());
 		

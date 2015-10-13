@@ -1,6 +1,8 @@
 public class CorpDeck extends Deck {
 
-	public CorpDeck(String side) {
+	
+	
+	public CorpDeck() {
 		super();
 		side = "corp";
 	}

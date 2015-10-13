@@ -7,7 +7,7 @@ public abstract class Deck {
 	}
 	
 	private static ArrayList<Card[]> deckOfCards = new ArrayList<>();
-	
+	String side;
 	
 	abstract protected void addCard(Card[] card, int index);
 
