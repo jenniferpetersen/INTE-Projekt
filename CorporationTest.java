@@ -8,7 +8,7 @@ public class CorporationTest {
 
 	@Test
 	public void Clicktest() {
-		assertEquals(3,new Corporation(3).getClicks());
+		assertEquals(2,new Corporation(2).getClicks());
 	}
 
 }
