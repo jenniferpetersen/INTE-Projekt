@@ -21,10 +21,16 @@ public class Corporation {
 	}
 	
 	public void useClick() {
-		clicks -= 1;
-		if (clicks == 0) {
-			turnOver = true;
+		if (clicks > 0) {
+			clicks -= 1;
+			if (clicks == 0) {
+				turnOver = true;
+			}
 		}
+		else {
+			throw new java.lang.IllegalArgumentException();	//bättre exception?
+		}
+
 	}
 	
 	public boolean getWinner() {
