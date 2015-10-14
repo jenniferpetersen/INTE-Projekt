@@ -1,4 +1,4 @@
-package saker;
+package netrunner;
 
 import static org.junit.Assert.*;
 
@@ -110,5 +110,14 @@ public class CorporationTest {
 	public void maxHandSizeTestNegative() {
 		Corporation corp = new Corporation();
 		corp.setMaxHandSize(-1);
+	}
+	
+	@Test
+	public void drawCardTest() {
+		Corporation corp = new Corporation();
+		Card RDCard = corp.getTopCardRD();
+		corp.drawCard();
+		assertFalse(RDCard.equals(corp.getTopCardRD()));
+		
 	}
 }

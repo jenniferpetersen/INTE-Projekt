@@ -1,4 +1,4 @@
-package saker;
+package netrunner;
 
 abstract class Player {
 	private int clicks;
@@ -15,6 +15,8 @@ abstract class Player {
 		agendaPoints = 0;
 		maxHandSize = 5;
 	}
+	
+	abstract void drawCard();
 	
 	public void useClick() {
 		if (clicks > 0) {
