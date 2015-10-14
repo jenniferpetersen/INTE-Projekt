@@ -24,6 +24,15 @@ public class CorporationTest {
 		corp.useClick();
 		assertTrue(corp.getTurnOver());
 	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void useTooManyClicks() {
+		Corporation corp = new Corporation();
+		corp.useClick();
+		corp.useClick();
+		corp.useClick();
+		corp.useClick();
+	}
 		
 	@Test
 	public void getCreditsTest() {
