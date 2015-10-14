@@ -6,7 +6,6 @@ public class Card {
 	private String text;
 	private int cost;
 	private String faction;
-	private String number;
 	private boolean uniqueness;
 	private String faction_code; 
 	private String factioncost; 
@@ -18,7 +17,7 @@ public class Card {
 	}
 	
 	public Card(String title, String typecode, String subTypeCode,
-			String text, int cost, String faction, String factionCode, String factionletter, String factionCost, String number, 
+			String text, int cost, String faction, String factionCode, String factionletter, String factionCost, 
 			boolean uniqueness) {
 		
 		this.title = title;
@@ -30,7 +29,6 @@ public class Card {
 		this.faction_code = factionCode;
 		this.faction_letter = factionletter;
 		this.factioncost = factionCost;
-		this.number = number;
 		this.uniqueness = uniqueness;
 
 		
@@ -81,10 +79,6 @@ public class Card {
 	}
 
 
-	public String getNumber() {
-		return number;
-	}
-
 	public boolean isUniqueness() {
 		return uniqueness;
 	}
@@ -92,6 +86,6 @@ public class Card {
 	
 	@Override
 	public String toString() {
-		return number;
+		return title;
 	}
 }

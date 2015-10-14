@@ -14,13 +14,7 @@ public class CardTest {
 		Card[] card = gson.fromJson(json, Card[].class);
 		assertEquals("Archived Memories", card[0].getTitle());
 	}
-	@Test
-	public void testType() throws Exception{
-		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
-		Gson gson = new Gson();
-		Card[] card = gson.fromJson(json, Card[].class);
-		assertEquals("Operation", card[0].getType());
-	}
+
 	@Test
 	public void testTypeCode() throws Exception{
 		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
@@ -64,12 +58,6 @@ public class CardTest {
 		Gson gson = new Gson();
 		Card[] card = gson.fromJson(json, Card[].class);
 		assertEquals("3", card[0].getFactionCost());
-	}@Test
-	public void testNumber() throws Exception{
-		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
-		Gson gson = new Gson();
-		Card[] card = gson.fromJson(json, Card[].class);
-		assertEquals("58", card[0].getNumber());
 	}@Test 
 	public void testUniqueness() throws Exception{
 		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
