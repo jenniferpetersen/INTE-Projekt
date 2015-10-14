@@ -18,7 +18,7 @@ class Corporation extends Player{
 		return researchAndDevelopment.get(0);
 	}
 	
-	public Card getTopCardHQ() {
+	public Card getLastCardHQ() {
 		return HQ.get(HQ.size()-1);
 	}
 	
