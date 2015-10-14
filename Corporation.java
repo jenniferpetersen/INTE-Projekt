@@ -10,6 +10,8 @@ class Corporation extends Player{
 	
 	public Corporation() {
 		super(3);
+		researchAndDevelopment.add(new Card("Noise"));
+		researchAndDevelopment.add(new Card("Snare!"));
 	}
 
 	public Card getTopCardRD() {
@@ -17,7 +19,8 @@ class Corporation extends Player{
 	}
 	
 	public void drawCard() {
-		
+		HQ.add(getTopCardRD());
+		researchAndDevelopment.remove(getTopCardRD());
 	}
 }
 	
