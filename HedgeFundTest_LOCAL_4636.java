@@ -18,11 +18,7 @@ public class HedgeFundTest {
 	@Test
 	public void getTextTest(){
 <<<<<<< HEAD
-<<<<<<< HEAD
 		assertEquals("Gain 9 credits", new HedgeFund().getTest()); 
-=======
-		assertEquals("Gain 9 credits", new HedgeFund().getText()); 
->>>>>>> 62a3f5d3f3eb29c3a284589aaf99ad8df83483ba
 	}
 	
 =======
