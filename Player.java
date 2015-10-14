@@ -6,14 +6,19 @@ abstract class Player {
 	private int agendaPoints;
 	private int maxHandSize;
 	
-	private boolean winner = false;
-	private boolean turnOver = false;
+	private boolean winner;
+	private boolean turnOver;
+	private boolean loser;
 	
 	public Player(int clicks) {
 		this.clicks = clicks;
 		credits = 5;
 		agendaPoints = 0;
 		maxHandSize = 5;
+		
+		winner = false;
+		setLoser(false);
+		turnOver = false;
 	}
 	
 	abstract void drawCard();
@@ -97,6 +102,14 @@ abstract class Player {
 	
 	public int getMaxHandSize() {
 		return maxHandSize;
+	}
+
+	public boolean isLoser() {
+		return loser;
+	}
+
+	public void setLoser(boolean loser) {
+		this.loser = loser;
 	}
 }
 
