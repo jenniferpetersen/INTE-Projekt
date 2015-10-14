@@ -10,8 +10,19 @@ class Corporation extends Player{
 	
 	public Corporation() {
 		super(3);
-		researchAndDevelopment.add(new Card("Noise"));
-		researchAndDevelopment.add(new Card("Snare!"));
+	}
+	
+	public void addCardToRD(Card c) {
+		researchAndDevelopment.add(c);
+	}
+	
+	public boolean isRDEmpty() {
+		if (researchAndDevelopment.isEmpty()){
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	public Card getTopCardRD() {
@@ -23,8 +34,13 @@ class Corporation extends Player{
 	}
 	
 	public void drawCard() {
-		HQ.add(getTopCardRD());
-		researchAndDevelopment.remove(getTopCardRD());
+		if(researchAndDevelopment.size() > 0) {
+			HQ.add(getTopCardRD());
+			researchAndDevelopment.remove(getTopCardRD());
+		}
+		else {
+			setLoser(true);
+		}
 	}
 }
 	

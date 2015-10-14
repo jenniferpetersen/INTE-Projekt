@@ -113,11 +113,30 @@ public class CorporationTest {
 	}
 	
 	@Test
-	public void drawCardTest() {
+	public void drawCardTest() {	//drar kort från R&D där det ligger 2 kort
 		Corporation corp = new Corporation();
+		corp.addCardToRD(new Card("Noise"));
+		corp.addCardToRD(new Card("Snare!"));
 		Card RDCard = corp.getTopCardRD();
 		corp.drawCard();
 		assertFalse(RDCard.equals(corp.getTopCardRD()));	//ett nytt kort skall nu ligga överst i R&D, och ej vara samma som det som drogs
+		assertTrue(RDCard.equals(corp.getTopCardHQ()));
+	}
+	
+	@Test
+	public void drawCardFromEmptyRD() {		//kontrollerar att Corp förlorar om man drar kort från tom R&D
+		Corporation corp = new Corporation();
+		corp.drawCard();
+		assertTrue(corp.isLoser());
+	}
+	
+	@Test
+	public void drawCardFromRDWithOneCard() {	//kontrollerar om man kan dra kort från R&D om där ligger 1 kort
+		Corporation corp = new Corporation();
+		corp.addCardToRD(new Card("Noise"));
+		Card RDCard = corp.getTopCardRD();
+		corp.drawCard();
+		assertTrue(corp.isRDEmpty());
 		assertTrue(RDCard.equals(corp.getTopCardHQ()));
 	}
 }
