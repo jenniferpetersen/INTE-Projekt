@@ -46,7 +46,7 @@ public class Corporation {
 	}
 	
 	public void gainCredits(int change) {
-		if (credits <= 0) {
+		if (change <= 0) {
 			throw new IllegalArgumentException();
 		}
 		else {
@@ -55,7 +55,7 @@ public class Corporation {
 	}
 
 	public void loseCredits(int change) {
-		if (credits <= 0) {
+		if (change <= 0) {
 			throw new IllegalArgumentException();
 		}
 		else {
