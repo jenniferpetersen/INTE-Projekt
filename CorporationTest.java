@@ -111,4 +111,10 @@ public class CorporationTest {
 		Corporation corp = new Corporation();
 		corp.setMaxHandSize(-1);
 	}
+	
+	@Test
+	public void drawCardTest() {
+		Corporation corp = new Corporation();
+		Scorp.getResearchAndDevelopment.get(0);
+	}
 }

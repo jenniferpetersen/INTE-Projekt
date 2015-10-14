@@ -16,6 +16,8 @@ abstract class Player {
 		maxHandSize = 5;
 	}
 	
+	abstract void drawCard();
+	
 	public void useClick() {
 		if (clicks > 0) {
 			clicks -= 1;
