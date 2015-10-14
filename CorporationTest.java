@@ -117,7 +117,7 @@ public class CorporationTest {
 		Corporation corp = new Corporation();
 		Card RDCard = corp.getTopCardRD();
 		corp.drawCard();
-		assertFalse(RDCard.equals(corp.getTopCardRD()));
+		assertFalse(RDCard.equals(corp.getTopCardRD()));	//ett nytt kort skall nu ligga överst i R&D, och ej vara samma som det som drogs
 		
 	}
 }
