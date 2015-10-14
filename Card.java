@@ -1,4 +1,4 @@
-package saker;
+package netrunner;
 
 public class Card {
 	private String title;
