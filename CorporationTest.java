@@ -24,6 +24,15 @@ public class CorporationTest {
 		corp.useClick();
 		assertTrue(corp.getTurnOver());
 	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void useTooManyClicks() {
+		Corporation corp = new Corporation();
+		corp.useClick();
+		corp.useClick();
+		corp.useClick();
+		corp.useClick();
+	}
 		
 	@Test
 	public void getCreditsTest() {
@@ -37,11 +46,23 @@ public class CorporationTest {
 		assertEquals(9, corp.getCredits());
 	}
 	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void gainNegativeCreditTest() {
+		Corporation corp = new Corporation();
+		corp.gainCredits(-1);
+	}
+	
 	@Test
 	public void loseCreditTest() {
 		Corporation corp = new Corporation();
 		corp.loseCredits(4);
 		assertEquals(1, corp.getCredits());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void loseNegativeCreditTest() {
+		Corporation corp = new Corporation();
+		corp.loseCredits(-1);
 	}
 	
 	@Test

@@ -21,10 +21,16 @@ public class Corporation {
 	}
 	
 	public void useClick() {
-		clicks -= 1;
-		if (clicks == 0) {
-			turnOver = true;
+		if (clicks > 0) {
+			clicks -= 1;
+			if (clicks == 0) {
+				turnOver = true;
+			}
 		}
+		else {
+			throw new java.lang.IllegalArgumentException();	//bättre exception?
+		}
+
 	}
 	
 	public boolean getWinner() {
@@ -40,7 +46,7 @@ public class Corporation {
 	}
 	
 	public void gainCredits(int change) {
-		if (credits <= 0) {
+		if (change <= 0) {
 			throw new IllegalArgumentException();
 		}
 		else {
@@ -49,7 +55,7 @@ public class Corporation {
 	}
 
 	public void loseCredits(int change) {
-		if (credits <= 0) {
+		if (change <= 0) {
 			throw new IllegalArgumentException();
 		}
 		else {
