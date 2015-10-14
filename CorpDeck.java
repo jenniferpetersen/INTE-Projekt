@@ -1,3 +1,5 @@
+package saker;
+
 public class CorpDeck extends Deck {
 
 	
