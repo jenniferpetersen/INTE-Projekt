@@ -14,8 +14,8 @@ public class Card {
 
 	
 	public Card(String title, String typecode, String subTypeCode,
-			String text, int cost, String faction, String factionCode, String factionletter, String factionCost, 
-			String flavor, String number, boolean uniqueness) {
+			String text, int cost, String faction, String factionCode, String factionletter, String factionCost, String number, 
+			boolean uniqueness) {
 		
 		this.title = title;
 		this.type_code = typecode;
