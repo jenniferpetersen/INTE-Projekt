@@ -115,6 +115,6 @@ public class CorporationTest {
 	@Test
 	public void drawCardTest() {
 		Corporation corp = new Corporation();
-		Scorp.getResearchAndDevelopment.get(0);
+		corp.getResearchAndDevelopment.get(0);
 	}
 }
