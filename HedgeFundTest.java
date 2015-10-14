@@ -17,9 +17,16 @@ public class HedgeFundTest {
 	
 	@Test
 	public void getTextTest(){
+<<<<<<< HEAD
 		assertEquals("Gain 9 credits", new HedgeFund().getTest()); 
 	}
 	
+=======
+		assertEquals("Gain 9 credits", new HedgeFund().getText());
+	}
+	
+	
+>>>>>>> testbranch
 	@Test
 	public void gainCreditsTest(){
 		HedgeFund hf = new HedgeFund();
