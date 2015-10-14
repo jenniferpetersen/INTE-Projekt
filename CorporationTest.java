@@ -59,6 +59,12 @@ public class CorporationTest {
 		assertEquals(1, corp.getCredits());
 	}
 	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void loseNegativeCreditTest() {
+		Corporation corp = new Corporation();
+		corp.loseCredits(-1);
+	}
+	
 	@Test
 	public void agendaPointsTest() {
 		assertEquals(0, new Corporation().getAgendaPoints());
