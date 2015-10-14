@@ -1,4 +1,4 @@
-package saker;
+package netrunner;
 
 abstract class Player {
 	private int clicks;

@@ -1,4 +1,4 @@
-package saker;
+package netrunner;
 
 import java.util.ArrayList;
 
@@ -10,6 +10,14 @@ class Corporation extends Player{
 	
 	public Corporation() {
 		super(3);
+	}
+
+	public Card getTopCardRD() {
+		return researchAndDevelopment.get(0);
+	}
+	
+	public void drawCard() {
+		
 	}
 }
 	

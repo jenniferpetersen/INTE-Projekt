@@ -1,4 +1,4 @@
-package saker;
+package netrunner;
 
 import static org.junit.Assert.*;
 
@@ -115,6 +115,9 @@ public class CorporationTest {
 	@Test
 	public void drawCardTest() {
 		Corporation corp = new Corporation();
-		corp.getResearchAndDevelopment.get(0);
+		Card RDCard = corp.getTopCardRD();
+		corp.drawCard();
+		assertFalse(RDCard.equals(corp.getTopCardRD()));
+		
 	}
 }
