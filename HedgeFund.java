@@ -2,6 +2,7 @@ public class HedgeFund {
 	
 	private int cost; 
 	private String type; 
+	private String text; 
 	 
 	
 	public HedgeFund(){
@@ -15,6 +16,10 @@ public class HedgeFund {
 	
 	public String getType(){
 		return type; 
+	}
+	
+	public String getText(){
+		return text; 
 	}
 	
 	public int gainCredits(int credits){

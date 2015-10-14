@@ -1,4 +1,4 @@
-package saker;
+package netrunner;
 
 import static org.junit.Assert.*;
 
