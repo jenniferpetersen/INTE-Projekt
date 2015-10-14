@@ -1,64 +1,39 @@
-package saker;
-
 public class Card {
-	private String code;
 	private String title;
 	private String type;
-	private String typeCode;
 	private String subTypeCode;
 	private String text;
 	private int cost;
 	private String faction;
-	private String factionCode;
-	private String factionLetter;
-	private int factionCost;
-	private String flavor;
-	private String illustrator;
 	private String number;
-	private String quantity;
-	private String setName;
-	private String setCode;
 	private boolean uniqueness;
-	private boolean limited;
-	private String cyclenumber;
+	private String faction_code; 
+	private String factioncost; 
+	private String faction_letter;
+	private String type_code; 
+ 
 
 	
-	public Card(String code, String title, String type, String typeCode, String subTypeCode,
-			String text, int cost, String faction, String factionCode, String factionLetter, int factionCost, 
-			String flavor, String illustrator, String number, String quantity, String setName, 
-			String setCode, boolean uniqueness, boolean limited, String cyclenumber) {
+	public Card(String title, String type, String typecode, String subTypeCode,
+			String text, int cost, String faction, String factionCode, String factionletter, String factionCost, 
+			String flavor, String number, boolean uniqueness) {
 		
-		this.code = code;
 		this.title = title;
 		this.type = type;
-		this.typeCode = typeCode;
+		this.type_code = typecode;
 		this.subTypeCode = subTypeCode;
 		this.text = text;
 		this.cost = cost;
 		this.faction = faction;
-		this.factionCode = factionCode;
-		this.factionLetter = factionLetter;
-		this.factionCost = factionCost;
-		this.flavor = flavor;
-		this.illustrator = illustrator;
+		this.faction_code = factionCode;
+		this.faction_letter = factionletter;
+		this.factioncost = factionCost;
 		this.number = number;
-		this.quantity = quantity;
-		this.setName = setName;
-		this.setCode = setCode;
 		this.uniqueness = uniqueness;
-		this.limited = limited;
-		this.cyclenumber = cyclenumber;
 
 		
 	}
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
 
 	public String getTitle() {
 		return title;
@@ -77,11 +52,11 @@ public class Card {
 	}
 
 	public String getTypeCode() {
-		return typeCode;
+		return type_code;
 	}
 
-	public void setTypeCode(String typeCode) {
-		this.typeCode = typeCode;
+	public void setTypeCode(String typecode) {
+		this.type_code = typecode;
 	}
 
 	public String getSubTypeCode() {
@@ -117,43 +92,27 @@ public class Card {
 	}
 
 	public String getFactionCode() {
-		return factionCode;
+		return faction_code;
 	}
 
 	public void setFactionCode(String factionCode) {
-		this.factionCode = factionCode;
+		this.faction_code = factionCode;
 	}
 
 	public String getFactionLetter() {
-		return factionLetter;
+		return faction_letter;
 	}
 
-	public void setFactionLetter(String factionLetter) {
-		this.factionLetter = factionLetter;
+	public void setFactionLetter(String factionletter) {
+		this.faction_letter = factionletter;
 	}
 
-	public int getFactionCost() {
-		return factionCost;
+	public String getFactionCost() {
+		return factioncost;
 	}
 
-	public void setFactionCost(int factionCost) {
-		this.factionCost = factionCost;
-	}
-
-	public String getFlavor() {
-		return flavor;
-	}
-
-	public void setFlavor(String flavor) {
-		this.flavor = flavor;
-	}
-
-	public String getIllustrator() {
-		return illustrator;
-	}
-
-	public void setIllustrator(String illustrator) {
-		this.illustrator = illustrator;
+	public void setFactioncost(String factioncost) {
+		this.factioncost = factioncost;
 	}
 
 	public String getNumber() {
@@ -164,30 +123,6 @@ public class Card {
 		this.number = number;
 	}
 
-	public String getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
-	}
-
-	public String getSetName() {
-		return setName;
-	}
-
-	public void setSetName(String setName) {
-		this.setName = setName;
-	}
-
-	public String getSetCode() {
-		return setCode;
-	}
-
-	public void setSetCode(String setCode) {
-		this.setCode = setCode;
-	}
-
 	public boolean isUniqueness() {
 		return uniqueness;
 	}
@@ -195,25 +130,9 @@ public class Card {
 	public void setUniqueness(boolean uniqueness) {
 		this.uniqueness = uniqueness;
 	}
-
-	public boolean isLimited() {
-		return limited;
-	}
-
-	public void setLimited(boolean limited) {
-		this.limited = limited;
-	}
-
-	public String getCyclenumber() {
-		return cyclenumber;
-	}
-
-	public void setCyclenumber(String cyclenumber) {
-		this.cyclenumber = cyclenumber;
-	}
 	
 	@Override
 	public String toString() {
-		return code;
+		return number;
 	}
 }
