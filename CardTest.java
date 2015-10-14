@@ -64,12 +64,6 @@ public class CardTest {
 		Gson gson = new Gson();
 		Card[] card = gson.fromJson(json, Card[].class);
 		assertEquals("3", card[0].getFactionCost());
-	}@Test
-	public void testNumber() throws Exception{
-		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
-		Gson gson = new Gson();
-		Card[] card = gson.fromJson(json, Card[].class);
-		assertEquals("58", card[0].getNumber());
 	}@Test 
 	public void testUniqueness() throws Exception{
 		String json = ImportCard.readUrl("http://netrunnerdb.com/api/card/01058");
