@@ -60,6 +60,9 @@ public class Corporation {
 		}
 		else {
 			credits -= change;
+			if (credits < 0) {
+				throw new java.lang.IllegalArgumentException("You cannot afford to spend that many credits!");
+			}
 		}
 	}
 	
