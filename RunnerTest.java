@@ -111,21 +111,28 @@ public class RunnerTest {
 	
 	@Test
 	public void addTagsTest(){
-		
+		Runner runner = new Runner();
+		runner.addTag(2);
+		assertEquals(2, runner.getTags());
 	}
 	
 	@Test
 	public void removeTagsTest(){
-		
+		Runner runner = new Runner();
+		runner.addTag(2);
+		runner.removeTag(1);
+		assertEquals(1, runner.getTags());
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void addTagsTestNegative(){
-		
+		Runner runner = new Runner();
+		runner.addTag(-1);
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void removeTagsTestNegative(){
-		
+		Runner runner = new Runner();
+		runner.removeTag(4);
 	}
 }

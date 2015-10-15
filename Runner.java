@@ -14,7 +14,7 @@ class Runner extends Player{
 		super(4); 
 	}
 	
-	public void addTag(){
+	public void addTag(int tags){
 		if (tags < 0){
 			throw new IllegalArgumentException();
 		}
@@ -23,13 +23,17 @@ class Runner extends Player{
 		}
 	}
 	
-	public void removeTag(){
-		if (tags <= 0){
+	public void removeTag(int tags){
+		if (this.tags <= 0){
 			throw new IllegalArgumentException();
 		}
 		else{
 			this.tags -= tags;
 		}
+	}
+	
+	public int getTags(){
+		return tags;
 	}
 	
 	public void addFiskInvestmentCardToStack(){
