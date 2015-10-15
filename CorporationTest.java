@@ -139,4 +139,10 @@ public class CorporationTest {
 		assertTrue(corp.isRDEmpty());
 		assertTrue(RDCard.equals(corp.getLastCardHQ()));
 	}
+	
+	@Test
+	public void trashCardFromHQTest() {
+		Corporation corp = new Corporation();
+		corp.trashCardFromHQ();
+	}
 }
