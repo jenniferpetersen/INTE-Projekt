@@ -1,10 +1,10 @@
 package netrunner;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList; 
 
 class Runner extends Player{
+	
+	private int tags;
 	
 	private ArrayList<Card> stack = new ArrayList<>();
 	private ArrayList<Card> grip = new ArrayList<>();
@@ -12,6 +12,24 @@ class Runner extends Player{
 	
 	public Runner(){
 		super(4); 
+	}
+	
+	public void addTag(){
+		if (tags < 0){
+			throw new IllegalArgumentException();
+		}
+		else{
+			this.tags += tags;
+		}
+	}
+	
+	public void removeTag(){
+		if (tags <= 0){
+			throw new IllegalArgumentException();
+		}
+		else{
+			this.tags -= tags;
+		}
 	}
 	
 	public void addFiskInvestmentCardToStack(){
@@ -33,6 +51,7 @@ class Runner extends Player{
 			grip.add(getTopCardFromStack());
 			stack.remove(getTopCardFromStack());
 		}else{
+			//Lackluster, improve?
 			System.out.println("Your stack is empty!");
 		}
 	

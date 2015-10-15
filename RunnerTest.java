@@ -108,4 +108,24 @@ public class RunnerTest {
 		Runner runner = new Runner();
 		runner.setMaxHandSize(-1);
 	}
+	
+	@Test
+	public void addTagsTest(){
+		
+	}
+	
+	@Test
+	public void removeTagsTest(){
+		
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void addTagsTestNegative(){
+		
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void removeTagsTestNegative(){
+		
+	}
 }
