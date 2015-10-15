@@ -45,6 +45,20 @@ class Corporation extends Player{
 			setLoser(true);
 		}
 	}
+	
+	public boolean isCardInHQ(Card c) {
+		return HQ.contains(c);
+	}
+	
+	public void trashCardFromHQ(Card c) {
+		if(isCardInHQ(c)) {
+			archives.add(c);
+			HQ.remove(c);
+		}
+		else {
+			throw new java.lang.IllegalArgumentException();
+		}
+	}
 }
 	
 
