@@ -143,6 +143,14 @@ public class CorporationTest {
 	@Test
 	public void trashCardFromHQTest() {
 		Corporation corp = new Corporation();
-		corp.trashCardFromHQ();
+		corp.addCardToRD(new Card("Noise"));
+		corp.drawCard();
+		corp.trashCardFromHQ(corp.getLastCardHQ());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void trashCardNotInHQTest() {
+		Corporation corp = new Corporation();
+		corp.trashCardFromHQ(new Card("Noise"));
 	}
 }
