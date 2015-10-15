@@ -17,20 +17,23 @@ class Corporation extends Player{
 	}
 	
 	public boolean isRDEmpty() {
-		if (researchAndDevelopment.isEmpty()){
-			return true;
-		}
-		else {
-			return false;
-		}
+		return researchAndDevelopment.isEmpty();
 	}
 
+	public boolean compareTopCardRD(Card c) {
+		return c.equals(researchAndDevelopment.get(0));
+	}
+	
 	public Card getTopCardRD() {
 		return researchAndDevelopment.get(0);
 	}
 	
 	public Card getLastCardHQ() {
 		return HQ.get(HQ.size()-1);
+	}
+	
+	public boolean compareLastCardHQ(Card c) {
+		return c.equals(HQ.get(HQ.size()-1));
 	}
 	
 	public void drawCard() {
