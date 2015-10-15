@@ -33,6 +33,27 @@ public class CorporationTest {
 		corp.useClick();
 		corp.useClick();
 	}
+	
+	@Test 
+	public void addBadPublicityTest() {
+		Corporation corp = new Corporation();
+		corp.addBadPublicity(1);
+		assertEquals(1, corp.getBadPublicity());
+	}
+	
+	@Test (expected = java.lang.IllegalArgumentException.class)
+	public void addNegativeBadPublicityTest() {
+		Corporation corp = new Corporation();
+		corp.addBadPublicity(-1);
+	}
+	
+	@Test
+	public void removeBadPublicityTest() {
+		Corporation corp = new Corporation();
+		corp.addBadPublicity(1);
+		corp.removeBadPublicity(1);
+		assertEquals(0, corp.getBadPublicity());
+	}
 		
 	@Test
 	public void getCreditsTest() {
