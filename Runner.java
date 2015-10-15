@@ -1,5 +1,7 @@
 package netrunner;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList; 
 
 class Runner extends Player{
@@ -30,7 +32,10 @@ class Runner extends Player{
 		if(stack.size() > 0) {
 			grip.add(getTopCardFromStack());
 			stack.remove(getTopCardFromStack());
+		}else{
+			System.out.println("Your stack is empty!");
 		}
+	
 	}
 
 }
