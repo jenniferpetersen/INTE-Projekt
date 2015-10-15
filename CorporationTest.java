@@ -149,8 +149,16 @@ public class CorporationTest {
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void trashCardNotInHQTest() {
+	public void trashCardFromEmptyHQTest() {
 		Corporation corp = new Corporation();
 		corp.trashCardFromHQ(new Card("Noise"));
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void trashCardNotInHQ() {
+		Corporation corp = new Corporation();
+		corp.addCardToRD(new Card("Noise"));
+		corp.drawCard();
+		corp.trashCardFromHQ(new Card("Snare!"));
 	}
 }
