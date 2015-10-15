@@ -33,6 +33,27 @@ public class CorporationTest {
 		corp.useClick();
 		corp.useClick();
 	}
+	
+	@Test 
+	public void addBadPublicityTest() {
+		Corporation corp = new Corporation();
+		corp.addBadPublicity(1);
+		assertEquals(1, corp.getBadPublicity());
+	}
+	
+	@Test (expected = java.lang.IllegalArgumentException.class)
+	public void addNegativeBadPublicityTest() {
+		Corporation corp = new Corporation();
+		corp.addBadPublicity(-1);
+	}
+	
+	@Test
+	public void removeBadPublicityTest() {
+		Corporation corp = new Corporation();
+		corp.addBadPublicity(1);
+		corp.removeBadPublicity(1);
+		assertEquals(0, corp.getBadPublicity());
+	}
 		
 	@Test
 	public void getCreditsTest() {
@@ -143,6 +164,27 @@ public class CorporationTest {
 	@Test
 	public void trashCardFromHQTest() {
 		Corporation corp = new Corporation();
-		corp.trashCardFromHQ();
+		corp.addCardToRD(new Card("Noise"));
+		corp.drawCard();
+		corp.trashCardFromHQ(corp.getLastCardHQ());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void trashCardFromEmptyHQTest() {
+		Corporation corp = new Corporation();
+		corp.trashCardFromHQ(new Card("Noise"));
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void trashCardNotInHQ() {
+		Corporation corp = new Corporation();
+		corp.addCardToRD(new Card("Noise"));
+		corp.drawCard();
+		corp.trashCardFromHQ(new Card("Snare!"));
+	}
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void trashNullFromHQ() {
+		Corporation corp = new Corporation();
+		corp.trashCardFromHQ(null);
 	}
 }

@@ -4,12 +4,27 @@ import java.util.ArrayList;
 
 class Corporation extends Player{
 	
+	private int badPublicity;
 	private ArrayList<Card> researchAndDevelopment = new ArrayList<>();
 	private ArrayList<Card> HQ = new ArrayList<>();
 	private ArrayList<Card> archives = new ArrayList<>();
 	
 	public Corporation() {
 		super(3);
+		badPublicity = 0;
+	}
+	
+	public void addBadPublicity(int bp){
+		if (bp < 0){
+			throw new IllegalArgumentException();
+		}
+		else{
+			badPublicity = bp;
+		}
+	}
+	
+	public int getBadPublicity() {
+		return badPublicity;
 	}
 	
 	public void addCardToRD(Card c) {
@@ -43,6 +58,20 @@ class Corporation extends Player{
 		}
 		else {
 			setLoser(true);
+		}
+	}
+	
+	public boolean isCardInHQ(Card c) {
+		return HQ.contains(c);
+	}
+	
+	public void trashCardFromHQ(Card c) {
+		if(isCardInHQ(c)) {
+			archives.add(c);
+			HQ.remove(c);
+		}
+		else {
+			throw new java.lang.IllegalArgumentException();
 		}
 	}
 }
