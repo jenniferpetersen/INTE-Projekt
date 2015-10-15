@@ -136,4 +136,31 @@ public class RunnerTest {
 		runner.removeTag(4);
 	}
 	
+	@Test
+	public void gainMemoryUnitTest(){
+		Runner runner = new Runner();
+		runner.gainMemoryUnits(4);
+		assertEquals(4, runner.getMemoryUnits());
+	}
+
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void gainNegativeMemoryUnitTest(){
+		Runner runner = new Runner();
+		runner.gainMemoryUnits(-1);
+	}
+
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void useMemoryUnitTest(){
+		Runner runner = new Runner();
+		runner.useMemoryUnits(2);
+		assertEquals(0, runner.getMemoryUnits());
+	}
+
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void useNegativeMemoryUnitTest(){
+		Runner runner = new Runner();
+		runner.useMemoryUnits(-1);
+	}
+
+	
 }

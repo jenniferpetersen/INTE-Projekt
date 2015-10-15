@@ -19,7 +19,16 @@ class Corporation extends Player{
 			throw new IllegalArgumentException();
 		}
 		else{
-			badPublicity = bp;
+			badPublicity += bp;
+		}
+	}
+	
+	public void removeBadPublicity(int bp){
+		if (badPublicity <= 0){
+			throw new IllegalArgumentException();
+		}
+		else{
+			badPublicity -= bp;
 		}
 	}
 	
