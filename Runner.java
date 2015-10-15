@@ -30,10 +30,7 @@ class Runner extends Player{
 		if(stack.size() > 0) {
 			grip.add(getTopCardFromStack());
 			stack.remove(getTopCardFromStack());
-		}else{
-			
 		}
 	}
-
 
 }
