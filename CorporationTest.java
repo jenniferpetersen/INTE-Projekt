@@ -117,10 +117,10 @@ public class CorporationTest {
 		Corporation corp = new Corporation();
 		corp.addCardToRD(new Card("Noise"));
 		corp.addCardToRD(new Card("Snare!"));
-		Card RDCard = corp.getTopCardRD();
+		Card drawnCard = corp.getTopCardRD();
 		corp.drawCard();
-		assertFalse(RDCard.equals(corp.getTopCardRD()));	//ett nytt kort skall nu ligga överst i R&D, och ej vara samma som det som drogs
-		assertTrue(RDCard.equals(corp.getTopCardHQ()));
+		assertFalse(corp.compareTopCardRD(drawnCard));	//ett nytt kort skall nu ligga överst i R&D, och ej vara samma som det som drogs
+		assertTrue(corp.compareLastCardHQ(drawnCard));
 	}
 	
 	@Test
@@ -137,6 +137,12 @@ public class CorporationTest {
 		Card RDCard = corp.getTopCardRD();
 		corp.drawCard();
 		assertTrue(corp.isRDEmpty());
-		assertTrue(RDCard.equals(corp.getTopCardHQ()));
+		assertTrue(RDCard.equals(corp.getLastCardHQ()));
+	}
+	
+	@Test
+	public void trashCardFromHQTest() {
+		Corporation corp = new Corporation();
+		corp.trashCardFromHQ();
 	}
 }
