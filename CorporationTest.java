@@ -161,4 +161,9 @@ public class CorporationTest {
 		corp.drawCard();
 		corp.trashCardFromHQ(new Card("Snare!"));
 	}
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void trashNullFromHQ() {
+		Corporation corp = new Corporation();
+		corp.trashCardFromHQ(null);
+	}
 }
