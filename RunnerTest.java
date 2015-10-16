@@ -136,4 +136,12 @@ public class RunnerTest {
 		runner.removeTag(4);
 	}
 	
+	@Test
+	public void getAmountOfCardsInGripTest(){
+		Runner runner = new Runner();
+		runner.addFiskInvestmentCardToStack();
+		runner.drawCard();
+		assertEquals(1, runner.getAmountOfCardsInGrip());
+	}
+	
 }
