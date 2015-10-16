@@ -6,7 +6,6 @@ class Runner extends Player{
 	
 	private int tags;
 	private int memoryUnits; 
-	
 	private ArrayList<Card> stack = new ArrayList<>();
 	private ArrayList<Card> grip = new ArrayList<>();
 	private ArrayList<Card> heap = new ArrayList<>();
@@ -14,6 +13,7 @@ class Runner extends Player{
 	public Runner(){
 		super(4); 
 		tags = 0;
+		memoryUnits = 4;
 	}
 	
 	public void addTag(int tags){
@@ -26,7 +26,10 @@ class Runner extends Player{
 	}
 	
 	public void removeTag(int tags){
-		if (this.tags <= 0){
+		if(tags <= 0){
+			throw new IllegalArgumentException();
+		}
+		if (this.tags - tags < 0){
 			throw new IllegalArgumentException();
 		}
 		else{
@@ -51,18 +54,17 @@ class Runner extends Player{
 		if(mU <= 0){
 			throw new IllegalArgumentException();
 		}
+		if(this.memoryUnits - mU < 0){
+			throw new IllegalArgumentException("You don't have enough memory to play that card!");
+		}
 		else {
 			memoryUnits -= mU; 
-			if(memoryUnits < 0){
-				throw new java.lang.IllegalArgumentException("You don't have enough memory units to install a card right now!");
-			}
 		}
 	}
 	
 	public int getMemoryUnits(){
 		return memoryUnits; 
 	}
-	
 	
 	public Card getLastCardInGrip(){
 		return grip.get(grip.size()-1);

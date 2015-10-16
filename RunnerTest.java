@@ -131,13 +131,25 @@ public class RunnerTest {
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void removeTagsTestNegative(){
+	public void removeTagsTestZero(){
 		Runner runner = new Runner();
 		runner.removeTag(4);
 	}
 	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void removeTagsTestNegativeSum(){
+		Runner runner = new Runner();
+		runner.addTag(2);
+		runner.removeTag(4);
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void removeTagsNegative(){
+		Runner runner = new Runner();
+		runner.removeTag(-1);
+	}
+	
 	@Test
-<<<<<<< HEAD
 	public void getAmountOfCardsInGripTest(){
 		Runner runner = new Runner();
 		runner.addFiskInvestmentCardToStack();
@@ -145,25 +157,26 @@ public class RunnerTest {
 		assertEquals(1, runner.getAmountOfCardsInGrip());
 	}
 	
-}
-=======
+	@Test
 	public void gainMemoryUnitTest(){
 		Runner runner = new Runner();
 		runner.gainMemoryUnits(4);
-		assertEquals(4, runner.getMemoryUnits());
+		assertEquals(8, runner.getMemoryUnits());
 	}
-
+	
+	
+	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void gainNegativeMemoryUnitTest(){
 		Runner runner = new Runner();
 		runner.gainMemoryUnits(-1);
 	}
 
-	@Test(expected = java.lang.IllegalArgumentException.class)
+	@Test
 	public void useMemoryUnitTest(){
 		Runner runner = new Runner();
-		runner.useMemoryUnits(2);
-		assertEquals(0, runner.getMemoryUnits());
+		runner.useMemoryUnits(3);
+		assertEquals(1, runner.getMemoryUnits());
 	}
 
 	@Test(expected = java.lang.IllegalArgumentException.class)
@@ -172,6 +185,36 @@ public class RunnerTest {
 		runner.useMemoryUnits(-1);
 	}
 
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void useSuperPositiveMemoryUnitTest(){
+		Runner runner = new Runner();
+		runner.useMemoryUnits(100);
+	}
 	
+	@Test
+	public void getLastCardInGripTest(){
+		Runner runner = new Runner();
+		runner.addFiskInvestmentCardToStack();
+		runner.addFiskInvestmentCardToStack();
+		runner.drawCard();
+		assertEquals("Fisk Investment Seminar", runner.getLastCardInGrip().getTitle());
+	}
+	
+	@Test
+	public void stackIsEmptyTest(){
+		Runner runner = new Runner();
+		assertTrue(runner.isStackEmpty());
+	}
+	
+	@Test
+	public void drawCardTest(){
+		Runner runner = new Runner();
+		//silly to add card first, but the arraylist wont work otherwise
+		runner.addFiskInvestmentCardToStack();
+		runner.drawCard();
+		Card a = runner.getLastCardInGrip();
+		runner.drawCard();
+		Card b = runner.getLastCardInGrip();
+		assertTrue(a == b);
+	}
 }
->>>>>>> refs/remotes/origin/master
