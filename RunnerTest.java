@@ -131,22 +131,25 @@ public class RunnerTest {
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void removeTagsTestNegative(){
+	public void removeTagsTestZero(){
 		Runner runner = new Runner();
 		runner.removeTag(4);
 	}
 	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void removeTagsTestNegativeSum(){
+		Runner runner = new Runner();
+		runner.addTag(2);
+		runner.removeTag(4);
+	}
+	
 	@Test
-<<<<<<< HEAD
 	public void getAmountOfCardsInGripTest(){
 		Runner runner = new Runner();
 		runner.addFiskInvestmentCardToStack();
 		runner.drawCard();
 		assertEquals(1, runner.getAmountOfCardsInGrip());
 	}
-	
-}
-=======
 	public void gainMemoryUnitTest(){
 		Runner runner = new Runner();
 		runner.gainMemoryUnits(4);
@@ -174,4 +177,3 @@ public class RunnerTest {
 
 	
 }
->>>>>>> refs/remotes/origin/master
