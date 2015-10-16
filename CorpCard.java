@@ -29,13 +29,15 @@ public class CorpCard extends Card{
 	}
 	
 	public void removeAdvancementTokens(int advancementTokens){
+		if(advancementTokens <= 0){
+			throw new IllegalArgumentException();
+		}
 		if (this.advancementTokens <= 0){
 			throw new IllegalArgumentException();
 		}
 		else{
 			this.advancementTokens -= advancementTokens;
 		}
-		this.advancementTokens -= advancementTokens;
 	}
 	
 	public void buyAdvancementTokens(Corporation corp){
