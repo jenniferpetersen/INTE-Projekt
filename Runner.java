@@ -5,6 +5,7 @@ import java.util.ArrayList;
 class Runner extends Player{
 	
 	private int tags;
+	private int memoryUnits; 
 	
 	private ArrayList<Card> stack = new ArrayList<>();
 	private ArrayList<Card> grip = new ArrayList<>();
@@ -36,6 +37,32 @@ class Runner extends Player{
 	public int getTags(){
 		return tags;
 	}
+	
+	public void gainMemoryUnits(int mU){
+		if (mU <= 0){
+			throw new IllegalArgumentException();
+		}
+		else {
+			memoryUnits += mU;
+		}
+	}
+
+	public void useMemoryUnits(int mU){
+		if(mU <= 0){
+			throw new IllegalArgumentException();
+		}
+		else {
+			memoryUnits -= mU; 
+			if(memoryUnits < 0){
+				throw new java.lang.IllegalArgumentException("You don't have enough memory units to install a card right now!");
+			}
+		}
+	}
+	
+	public int getMemoryUnits(){
+		return memoryUnits; 
+	}
+	
 	
 	public Card getLastCardInGrip(){
 		return grip.get(grip.size()-1);
