@@ -10,7 +10,17 @@ public class FiskInvestmentSeminar extends Event{
 				false);
 	}
 	
-	
+	//will a playCard() method suffice? or is it too sloppy?
+	public void playCard(Corporation corp, Runner runner){
+		if(runner.getClicks() == 4){
+			for(int i = 0; i <= 2; i++){
+				corp.drawCard();	
+				runner.drawCard();
+			}
+		}else{
+			throw new java.lang.IllegalArgumentException();
+		}
+	}
 	
 	
 	

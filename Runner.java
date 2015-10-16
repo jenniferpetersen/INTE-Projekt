@@ -13,6 +13,7 @@ class Runner extends Player{
 	
 	public Runner(){
 		super(4); 
+		tags = 0;
 	}
 	
 	public void addTag(int tags){
@@ -68,13 +69,16 @@ class Runner extends Player{
 	}
 	
 	public void addFiskInvestmentCardToStack(){
-		Card card1 = new Card("Fisk Investment Seminar", "event", "Priority", "Play only as your first [Click].\r\nEach player draws 3 cards.", 0, "Criminal", "criminal", "c", "2",
-				false);
+		Card card1 = new Card("Fisk Investment Seminar");
 		stack.add(card1);
 	}
 	
 	public Card getTopCardFromStack(){
 		return stack.get(0); 
+	}
+	
+	public int getAmountOfCardsInGrip(){
+		return grip.size();
 	}
 	
 	public boolean isStackEmpty() {

@@ -137,6 +137,16 @@ public class RunnerTest {
 	}
 	
 	@Test
+<<<<<<< HEAD
+	public void getAmountOfCardsInGripTest(){
+		Runner runner = new Runner();
+		runner.addFiskInvestmentCardToStack();
+		runner.drawCard();
+		assertEquals(1, runner.getAmountOfCardsInGrip());
+	}
+	
+}
+=======
 	public void gainMemoryUnitTest(){
 		Runner runner = new Runner();
 		runner.gainMemoryUnits(4);
@@ -164,3 +174,4 @@ public class RunnerTest {
 
 	
 }
+>>>>>>> refs/remotes/origin/master
