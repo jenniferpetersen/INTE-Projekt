@@ -29,7 +29,7 @@ class Runner extends Player{
 		if(tags <= 0){
 			throw new IllegalArgumentException();
 		}
-		if (this.tags - tags <= 0){
+		if (this.tags - tags < 0){
 			throw new IllegalArgumentException();
 		}
 		else{
