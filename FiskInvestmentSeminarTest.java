@@ -14,6 +14,7 @@ public class FiskInvestmentSeminarTest {
 	
 	@Test
 	public void testPlayCard(){
+		//ugly code. fix somehow?
 		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar("Fisk Investment Seminar", "event", "Priority", "Play only as your first [Click].\r\nEach player draws 3 cards.", 0, "Criminal", "criminal", "c", "2",
 					false);
 		Corporation corp = new Corporation();
