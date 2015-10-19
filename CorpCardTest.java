@@ -48,7 +48,7 @@ public class CorpCardTest {
 	
 	@Test
 	public void testBuyAdvancementTokens(){
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		CorpCard corpcard = new CorpCard("Hedgefund");
 		corpcard.buyAdvancementTokens(corp);
 		assertEquals(4, corp.getCredits());
