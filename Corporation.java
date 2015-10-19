@@ -12,7 +12,7 @@ abstract class Corporation extends Player{
 	public Corporation() {
 		super(3);
 		badPublicity = 0;
-	}
+	} 
 	
 	public void addBadPublicity(int bp){
 		if (bp < 0){
@@ -85,5 +85,17 @@ abstract class Corporation extends Player{
 		else {
 			throw new java.lang.IllegalArgumentException();
 		}
+	}
+	
+	public void removeCardFromRD(Card c) {
+		researchAndDevelopment.remove(c);
+	}
+	
+	public void removeCardFromHQ(Card c) {
+		HQ.remove(c);
+	}
+	
+	public void removeCardFromArchives(Card c) {
+		archives.remove(c);
 	}
 }
