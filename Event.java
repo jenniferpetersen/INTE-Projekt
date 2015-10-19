@@ -7,7 +7,7 @@ public class Event extends RunnerCard{
 			boolean uniqueness) {
 		
 		
-		super(title,"event", subTypeCode, text, cost,  factionCode, factionCost, uniqueness);
+		super(title,"event", subTypeCode, text, cost,  factionCode,  factionCost, uniqueness);
 		
 	}
 
