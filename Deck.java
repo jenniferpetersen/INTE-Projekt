@@ -3,17 +3,16 @@ package netrunner;
 import java.util.ArrayList;
 
 public abstract class Deck {
-
+	
 	public Deck(){
-		
 	}
 	
-	private static ArrayList<Card[]> deckOfCards = new ArrayList<>();
+	private ArrayList<Card> deckOfCards = new ArrayList<>();
 	String side;
 	
-	abstract protected void addCard(Card[] card, int index);
+	abstract protected void addCard(Card card);
 
-	protected ArrayList<Card[]> getDeckOfCards(){
+	protected ArrayList<Card> getDeckOfCards(){
 		return deckOfCards;
 	}
 	
@@ -22,8 +21,4 @@ public abstract class Deck {
 	}
 
 	
-	
 }
-
-
-
