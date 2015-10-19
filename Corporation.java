@@ -2,7 +2,7 @@ package netrunner;
 
 import java.util.ArrayList;
 
-class Corporation extends Player{
+abstract class Corporation extends Player{
 	
 	private int badPublicity;
 	private ArrayList<Card> researchAndDevelopment = new ArrayList<>();
