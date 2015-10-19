@@ -1,30 +1,13 @@
-public class HedgeFund {
-	
-	private int cost; 
-	private String type; 
-	private String text; 
-	 
+package netrunner;
+
+public class HedgeFund extends Operation{
 	
 	public HedgeFund(){
-		cost = 5;
-		type = "Operation";
+		super("HedgeFund", "Transaction", "Gain 9 credits", 5, "neutral", "0", false);
 	}
 	
-	public int getCost(){
-		return cost; 
-	}
-	
-	public String getType(){
-		return type; 
-	}
-	
-	public String getText(){
-		return text; 
-	}
-	
-	public int gainCredits(int credits){
-		credits += 9; 
-		return credits; 
+	public void playCard(Cerebral_Imaging corp){
+		corp.gainCredits(9);
 	}
 	
 }
