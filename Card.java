@@ -5,11 +5,9 @@ public class Card {
 	private String subTypeCode;
 	private String text;
 	private int cost;
-	private String faction;
 	private boolean uniqueness;
 	private String faction_code; 
 	private String factioncost; 
-	private String faction_letter;
 	private String type_code; 
  
 	public Card (String title) {
@@ -17,7 +15,7 @@ public class Card {
 	}
 	
 	public Card(String title, String typecode, String subTypeCode,
-			String text, int cost, String faction, String factionCode, String factionletter, String factionCost, 
+			String text, int cost, String factionCode, String factionletter, String factionCost, 
 			boolean uniqueness) {
 		
 		this.title = title;
@@ -25,9 +23,7 @@ public class Card {
 		this.subTypeCode = subTypeCode;
 		this.text = text;
 		this.cost = cost;
-		this.faction = faction;
 		this.faction_code = factionCode;
-		this.faction_letter = factionletter;
 		this.factioncost = factionCost;
 		this.uniqueness = uniqueness;
 
@@ -62,18 +58,8 @@ public class Card {
 	}
 
 
-	public String getFaction() {
-		return faction;
-	}
-
-
 	public String getFactionCode() {
 		return faction_code;
-	}
-
-
-	public String getFactionLetter() {
-		return faction_letter;
 	}
 
 
