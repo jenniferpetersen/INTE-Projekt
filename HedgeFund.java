@@ -6,7 +6,7 @@ public class HedgeFund extends Operation{
 		super("HedgeFund", "Transaction", "Gain 9 credits", 5, "neutral", "0", false);
 	}
 	
-	public void playCard(Cerebral_Imaging corp){
+	public void playCard(Corporation corp){
 		corp.gainCredits(9);
 	}
 	
