@@ -7,7 +7,7 @@ public class Resource extends RunnerCard {
 			boolean uniqueness) {
 		
 		
-		super(title,"resource", subTypeCode, text, cost, faction, factionCode, factionletter, factionCost, uniqueness);
+		super(title,"resource", subTypeCode, text, cost, factionCode, factionCost, uniqueness);
 		
 	}
 }
