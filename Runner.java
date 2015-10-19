@@ -1,6 +1,7 @@
 package netrunner;
 
 import java.util.ArrayList; 
+import java.util.Random;
 
 class Runner extends Player{
 	
@@ -87,6 +88,10 @@ class Runner extends Player{
 		return stack.isEmpty();
 	}
 	
+	public boolean isHeapEmpty(){
+		return heap.isEmpty();
+	}
+	
 	public void drawCard(){
 		if(stack.size() > 0) {
 			grip.add(getTopCardFromStack());
@@ -95,7 +100,29 @@ class Runner extends Player{
 			//Lackluster, improve?
 			System.out.println("Your stack is empty!");
 		}
-	
 	}
+	
 
+	public void takeDamage(int damageAmount){
+		Random rand = new Random();
+		if(damageAmount > grip.size()){
+			System.out.println("You have flatlined. Good game, well played!");
+			setLoser(true);
+		}else{
+			for(int i = 0; i < damageAmount; i++){
+				int idx = rand.nextInt(grip.size());
+				trashCardFromGrip(grip.get(idx));
+			}
+		}
+	}
+	
+	public void trashCardFromGrip(Card c) {
+		if(grip.contains(c)){
+			heap.add(c);
+			grip.remove(c);
+		}
+		else {
+			throw new java.lang.IllegalArgumentException();
+		}
+	}
 }
