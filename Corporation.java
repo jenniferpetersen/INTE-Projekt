@@ -14,6 +14,16 @@ abstract class Corporation extends Player{
 		badPublicity = 0;
 	} 
 	
+	public void advanceAgenda(Agenda a) {
+		if (a == null) {
+			throw new NullPointerException();
+		}
+		else {
+			a.advance();
+			loseCredits(1);
+		}
+	}
+	
 	public void addBadPublicity(int bp){
 		if (bp < 0){
 			throw new IllegalArgumentException();

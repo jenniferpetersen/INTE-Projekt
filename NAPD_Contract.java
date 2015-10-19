@@ -11,6 +11,9 @@ public class NAPD_Contract extends Agenda{
 		if (runner.getCredits() < 4) {
 			throw new IllegalArgumentException("You don't have enough credits to steal this!");
 		}
+		else if (accessedServer == null || runner == null || corp == null) {
+			throw new NullPointerException();
+		}
 		else {
 			runner.addToScoreArea(this);
 			runner.loseCredits(4);
@@ -22,6 +25,8 @@ public class NAPD_Contract extends Agenda{
 								break;
 			case "HQ":			corp.removeCardFromHQ(this);
 								break;
+			case "":			throw new IllegalArgumentException("You need to specify where the agenda was accessed from");
+					
 			}
 			
 		}

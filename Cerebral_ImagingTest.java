@@ -5,6 +5,22 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class Cerebral_ImagingTest {
+	
+	@Test
+	public void advanceAgendaTest() {
+		Cerebral_Imaging CI = new Cerebral_Imaging();
+		Agenda napd = new NAPD_Contract();
+		
+		CI.advanceAgenda(napd);
+		assertEquals(1, napd.getAdvancementTokens());
+		assertEquals(4, CI.getCredits());
+	}
+	
+	@Test (expected = NullPointerException.class)
+	public void advanceNullAgendaTest() {
+		Cerebral_Imaging CI = new Cerebral_Imaging();
+		CI.advanceAgenda(null);
+	}
 
 	@Test
 	public void gainCreditsHandSizeTest() {

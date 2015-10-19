@@ -30,6 +30,40 @@ public class NAPD_ContractTest {
 		napd.stealAgenda(corp, runner, "researchAndDevelopment");
 	}
 	
+	@Test (expected = java.lang.NullPointerException.class)
+	public void stealNullAccessedServerTest() {
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract napd = new NAPD_Contract();
+		
+		napd.stealAgenda(corp, runner, null);
+	}
+	
+	@Test (expected = java.lang.IllegalArgumentException.class)
+	public void stealEmptyAccessedServerTest() {
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract napd = new NAPD_Contract();
+		
+		napd.stealAgenda(corp, runner, "");
+	}
+	
+	@Test (expected = java.lang.NullPointerException.class)
+	public void stealNullRunnerTest() {
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract napd = new NAPD_Contract();
+		
+		napd.stealAgenda(corp, null, "Archives");
+	}
+	
+	@Test (expected = java.lang.NullPointerException.class)
+	public void stealNullCorpTest() {
+		Runner runner = new Runner();
+		NAPD_Contract napd = new NAPD_Contract();
+		
+		napd.stealAgenda(null, runner, "Archives");
+	}
+	
 	@Test
 	public void scoreTest() {
 		Cerebral_Imaging corp = new Cerebral_Imaging();
@@ -42,6 +76,18 @@ public class NAPD_ContractTest {
 		
 		napd.scoreAgenda(corp);
 		assertEquals(2, corp.getAgendaPoints());
+	}
+	
+	@Test (expected = java.lang.NullPointerException.class) 
+	public void scoreNullCorpTest() {
+		NAPD_Contract napd = new NAPD_Contract();
+		
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		
+		napd.scoreAgenda(null);
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
