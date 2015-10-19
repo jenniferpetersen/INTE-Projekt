@@ -1,15 +1,21 @@
 package netrunner;
 
-import java.util.ArrayList;
+public class RunnerDeck extends Deck {
 
-abstract class RunnerDeck extends Deck {
-
-	public RunnerDeck(ArrayList<Card> deckOfCards, String side) {
+	public RunnerDeck() {
 		super();
 		side = "runner";
-		// TODO Auto-generated constructor stub
 	}
-	protected void addCard(Card runnerCard){
-		// TODO addcard
+	
+	public void addCard(Card[] runnerCard, int idx){
+		if(runnerCard[idx].getFactionCode().equals("anarch")||
+			runnerCard[idx].getFactionCode().equals("criminal") ||
+			runnerCard[idx].getFactionCode().equals("shaper") ||
+			runnerCard[idx].getFactionCode().equals("neutral")){
+				getDeckOfCards().add(runnerCard[0]);
+			}else{
+				throw new IllegalArgumentException("Not a Runner card!");
+			}
 	}
+	
 }
