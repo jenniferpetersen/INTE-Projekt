@@ -54,6 +54,19 @@ public class CorporationTest {
 		corp.removeBadPublicity(1);
 		assertEquals(0, corp.getBadPublicity());
 	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void removeNegativeBadPublicityTest() {
+		Corporation corp = new Corporation();
+		corp.addBadPublicity(1);
+		corp.removeBadPublicity(-1);
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void removeBadPublicityFromZeroTest() {
+		Corporation corp = new Corporation();
+		corp.removeBadPublicity(1);
+	}
 		
 	@Test
 	public void getCreditsTest() {
