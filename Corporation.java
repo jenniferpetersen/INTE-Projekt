@@ -43,6 +43,14 @@ abstract class Corporation extends Player{
 		researchAndDevelopment.add(c);
 	}
 	
+	public void addCardToArchives(Card c) {
+		archives.add(c);
+	}
+	
+	public void addCardToHQ(Card c) {
+		HQ.add(c);
+	}
+	
 	public boolean isRDEmpty() {
 		return researchAndDevelopment.isEmpty();
 	}
@@ -97,5 +105,13 @@ abstract class Corporation extends Player{
 	
 	public void removeCardFromArchives(Card c) {
 		archives.remove(c);
+	}
+	
+	public int getSizeArchives() {
+		return archives.size();
+	}
+	
+	public int getSizeHQ() {
+		return HQ.size();
 	}
 }
