@@ -1,5 +1,7 @@
 package netrunner;
 
+import java.util.ArrayList;
+
 abstract class Agenda extends CorpCard{
 	
 	private int agendaPoints;
@@ -15,7 +17,7 @@ abstract class Agenda extends CorpCard{
 		return agendaPoints;
 	}
 	
-	abstract void stealAgenda(Runner runner);
-	abstract void scoreAgenda(Corporation corp);
+	abstract void stealAgenda(Corporation corp, Runner runner, String accessedServer);
+	abstract void scoreAgenda(Corporation corp, String server);
 
 }
