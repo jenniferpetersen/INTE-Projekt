@@ -10,7 +10,7 @@ public abstract class Deck {
 	private ArrayList<Card> deckOfCards = new ArrayList<>();
 	String side;
 	
-	abstract protected void addCard(Card card);
+	abstract protected void addCard(Card[] card, int index);
 
 	protected ArrayList<Card> getDeckOfCards(){
 		return deckOfCards;

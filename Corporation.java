@@ -14,6 +14,16 @@ abstract class Corporation extends Player{
 		badPublicity = 0;
 	} 
 	
+	public void advanceAgenda(Agenda a) {
+		if (a == null) {
+			throw new NullPointerException();
+		}
+		else {
+			a.advance();
+			loseCredits(1);
+		}
+	}
+	
 	public void addBadPublicity(int bp){
 		if (bp < 0){
 			throw new IllegalArgumentException();
@@ -41,6 +51,14 @@ abstract class Corporation extends Player{
 	
 	public void addCardToRD(Card c) {
 		researchAndDevelopment.add(c);
+	}
+	
+	public void addCardToArchives(Card c) {
+		archives.add(c);
+	}
+	
+	public void addCardToHQ(Card c) {
+		HQ.add(c);
 	}
 	
 	public boolean isRDEmpty() {
@@ -97,5 +115,13 @@ abstract class Corporation extends Player{
 	
 	public void removeCardFromArchives(Card c) {
 		archives.remove(c);
+	}
+	
+	public int getSizeArchives() {
+		return archives.size();
+	}
+	
+	public int getSizeHQ() {
+		return HQ.size();
 	}
 }

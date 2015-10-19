@@ -1,7 +1,5 @@
 package netrunner;
 
-import java.util.ArrayList;
-
 public class NAPD_Contract extends Agenda{
 	
 	public NAPD_Contract() {
@@ -11,12 +9,14 @@ public class NAPD_Contract extends Agenda{
 	
 	public void stealAgenda(Corporation corp, Runner runner, String accessedServer) {
 		if (runner.getCredits() < 4) {
-			System.out.println("You cannot afford to steal this agenda!");
+			throw new IllegalArgumentException("You don't have enough credits to steal this!");
+		}
+		else if (accessedServer == null || runner == null || corp == null) {
+			throw new NullPointerException();
 		}
 		else {
-			runner.addAgendaPoints(this.getAgendaPoints());
-			//Ta bort this från där runnern accessade (HQ, R&D, eller Archives) samt lägg till Runners SCORE AREA
 			runner.addToScoreArea(this);
+			runner.loseCredits(4);
 			
 			switch(accessedServer) {
 			case "researchAndDevelopment": corp.removeCardFromRD(this);
@@ -25,22 +25,21 @@ public class NAPD_Contract extends Agenda{
 								break;
 			case "HQ":			corp.removeCardFromHQ(this);
 								break;
+			case "":			throw new IllegalArgumentException("You need to specify where the agenda was accessed from");
+					
 			}
 			
 		}
 	}
 	
-	public void scoreAgenda(Corporation corp, String server) {
-		corp.addToScoreArea(this);
-		
-		switch(server) {
-		case "researchAndDevelopment": corp.removeCardFromRD(this);
-									break;
-		case "Archives":	corp.removeCardFromArchives(this);
-							break;
-		case "HQ":			corp.removeCardFromHQ(this);
-							break;
+	public void scoreAgenda(Corporation corp) {
+		if (this.getAdvancementTokens() >= this.getCost()) {
+			corp.addToScoreArea(this);
 		}
+		else {
+			throw new java.lang.IllegalArgumentException("Agenda is not advanced enough to score!");
+		}
+
 	}
 
 }
