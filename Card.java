@@ -20,7 +20,7 @@ public class Card {
 			String text, int cost, String faction, String factionCode, String factionletter, String factionCost, 
 			boolean uniqueness) {
 		
-		this.title = title;
+		this.title = title; 
 		this.type_code = typecode;
 		this.subTypeCode = subTypeCode;
 		this.text = text;
