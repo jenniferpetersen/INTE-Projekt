@@ -239,4 +239,13 @@ public class RunnerTest {
 		runner.takeDamage(6);
 		assertTrue(runner.isLoser());
 	}
+	
+	@Test
+	public void trashCardFromGripTest() {
+		Runner runner = new Runner();
+		runner.addFiskInvestmentCardToStack();
+		runner.drawCard();
+		runner.trashCardFromGrip(runner.getLastCardInGrip());
+		assertEquals(false, runner.isHeapEmpty());
+	}
 }

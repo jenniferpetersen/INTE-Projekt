@@ -30,7 +30,7 @@ class Runner extends Player{
 		if(tags <= 0){
 			throw new IllegalArgumentException();
 		}
-		if (this.tags - tags <= 0){
+		if (this.tags - tags < 0){
 			throw new IllegalArgumentException();
 		}
 		else{
@@ -88,6 +88,10 @@ class Runner extends Player{
 		return stack.isEmpty();
 	}
 	
+	public boolean isHeapEmpty(){
+		return heap.isEmpty();
+	}
+	
 	public void drawCard(){
 		if(stack.size() > 0) {
 			grip.add(getTopCardFromStack());
@@ -97,6 +101,7 @@ class Runner extends Player{
 			System.out.println("Your stack is empty!");
 		}
 	}
+	
 
 	public void takeDamage(int damageAmount){
 		Random rand = new Random();
@@ -106,8 +111,18 @@ class Runner extends Player{
 		}else{
 			for(int i = 0; i < damageAmount; i++){
 				int idx = rand.nextInt(grip.size());
-				grip.remove(idx);
+				trashCardFromGrip(grip.get(idx));
 			}
+		}
+	}
+	
+	public void trashCardFromGrip(Card c) {
+		if(grip.contains(c)){
+			heap.add(c);
+			grip.remove(c);
+		}
+		else {
+			throw new java.lang.IllegalArgumentException();
 		}
 	}
 }
