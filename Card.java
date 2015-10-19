@@ -35,6 +35,9 @@ public class Card {
 	}
 
 
+	public Card(Card card) {
+	}
+
 	public String getTitle() {
 		return title;
 	}
