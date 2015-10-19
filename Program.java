@@ -2,12 +2,12 @@ package netrunner;
 
 public class Program extends RunnerCard{
 	
-	public Program(String title, String subTypeCode, String text, int cost, String faction,
-			String factionCode, String factionletter, String factionCost,
+	public Program(String title, String subTypeCode, String text, int cost, 
+			String factionCode, String factionCost,
 			boolean uniqueness) {
 		
 		
-		super(title,"program", subTypeCode, text, cost, faction, factionCode, factionletter, factionCost, uniqueness);
+		super(title,"program", subTypeCode, text, cost,  factionCode,  factionCost, uniqueness);
 		
 	}
 
