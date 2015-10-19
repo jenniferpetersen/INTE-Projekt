@@ -1,8 +1,8 @@
 package netrunner;
 
-public class Cerebral_Imagining extends Corporation{
+public class Cerebral_Imaging extends Corporation{
 	
-	public Cerebral_Imagining() {
+	public Cerebral_Imaging() {
 		super();
 	}
 	
