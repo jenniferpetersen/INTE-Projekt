@@ -1,14 +1,18 @@
 package netrunner;
 
+import java.util.ArrayList;
+
 abstract class Player {
 	private int clicks;
 	private int credits;
 	private int agendaPoints;
 	private int maxHandSize;
 	
-	private boolean winner;
+	private boolean winner; 
 	private boolean turnOver;
 	private boolean loser;
+	
+	private ArrayList<Agenda> scoreArea = new ArrayList<>();
 	
 	public Player(int clicks) {
 		this.clicks = clicks;
@@ -22,6 +26,11 @@ abstract class Player {
 	}
 	
 	abstract void drawCard();
+	
+	public void addToScoreArea(Agenda agenda) {
+		scoreArea.add(agenda);
+		addAgendaPoints(agenda.getAgendaPoints());
+	}
 	
 	public void useClick() {
 		if (clicks > 0) {
