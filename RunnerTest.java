@@ -217,4 +217,26 @@ public class RunnerTest {
 		Card b = runner.getLastCardInGrip();
 		assertTrue(a == b);
 	}
+	
+	@Test
+	public void takeDamageTest(){
+		Runner runner = new Runner();
+		for(int i = 0; i < 5; i++){ //draw 5 cards
+			runner.addFiskInvestmentCardToStack();
+			runner.drawCard();
+		}
+		runner.takeDamage(1);
+		assertEquals(4, runner.getAmountOfCardsInGrip());
+	}
+	
+	@Test
+	public void takeLethalDamageTest(){
+		Runner runner = new Runner();
+		for(int i = 0; i < 5; i++){ //draw 5 cards
+			runner.addFiskInvestmentCardToStack();
+			runner.drawCard();
+		}
+		runner.takeDamage(6);
+		assertTrue(runner.isLoser());
+	}
 }
