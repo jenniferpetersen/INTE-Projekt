@@ -4,18 +4,30 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class CorporationTest {
-	
-	//TESTER UTKOMMENTERADE DÅ CORPORATION NUMERA ÄR ABSTRAKT
+public class Cerebral_ImagingTest {
 
-/*	@Test
+	@Test
+	public void gainCreditsHandSizeTest() {
+		Cerebral_Imaging CI = new Cerebral_Imaging();
+		CI.gainCredits(1);
+		assertEquals(6, CI.getMaxHandSize());
+	}
+	
+	@Test
+	public void loseCreditsHandSizeTest() {
+		Cerebral_Imaging CI = new Cerebral_Imaging();
+		CI.loseCredits(1);
+		assertEquals(4, CI.getMaxHandSize());
+	}
+
+	@Test
 	public void getClickTest() {
-		assertEquals(3,new Corporation().getClicks());
+		assertEquals(3,new Cerebral_Imaging().getClicks());
 	}
 	
 	@Test
 	public void useClickTest() { 
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.useClick();
 		assertEquals(2,corp.getClicks());
 		assertFalse(corp.getTurnOver());
@@ -29,7 +41,7 @@ public class CorporationTest {
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void useTooManyClicks() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.useClick();
 		corp.useClick();
 		corp.useClick();
@@ -38,20 +50,20 @@ public class CorporationTest {
 	
 	@Test 
 	public void addBadPublicityTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addBadPublicity(1);
 		assertEquals(1, corp.getBadPublicity());
 	}
 	
 	@Test (expected = java.lang.IllegalArgumentException.class)
 	public void addNegativeBadPublicityTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addBadPublicity(-1);
 	}
 	
 	@Test
 	public void removeBadPublicityTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addBadPublicity(1);
 		corp.removeBadPublicity(1);
 		assertEquals(0, corp.getBadPublicity());
@@ -59,60 +71,60 @@ public class CorporationTest {
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void removeNegativeBadPublicityTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addBadPublicity(1);
 		corp.removeBadPublicity(-1);
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void removeBadPublicityFromZeroTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.removeBadPublicity(1);
 	}
 		
 	@Test
 	public void getCreditsTest() {
-		assertEquals(5,new Corporation().getCredits());
+		assertEquals(5,new Cerebral_Imaging().getCredits());
 	}
 	
 	@Test
 	public void gainCreditTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.gainCredits(4);
 		assertEquals(9, corp.getCredits());
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void gainNegativeCreditTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.gainCredits(-1);
 	}
 	
 	@Test
 	public void loseCreditTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.loseCredits(4);
 		assertEquals(1, corp.getCredits());
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void loseNegativeCreditTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.loseCredits(-1);
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void loseTooManyCreditTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.loseCredits(6);
 		assertEquals(0, corp.getCredits());
 	}
 	
 	@Test
 	public void agendaPointsTest() {
-		assertEquals(0, new Corporation().getAgendaPoints());
+		assertEquals(0, new Cerebral_Imaging().getAgendaPoints());
 		
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addAgendaPoints(2);
 		assertEquals(2, corp.getAgendaPoints());
 		assertFalse(corp.getWinner());
@@ -128,15 +140,15 @@ public class CorporationTest {
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void agendaPointsTestNegative() {
-		new Corporation().addAgendaPoints(-1);
+		new Cerebral_Imaging().addAgendaPoints(-1);
 	}
 	
 	
 	@Test
 	public void maxHandSizeTest() {
-		assertEquals(5, new Corporation().getMaxHandSize());
+		assertEquals(5, new Cerebral_Imaging().getMaxHandSize());
 		
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.setMaxHandSize(3);
 		assertEquals(3, corp.getMaxHandSize());
 		
@@ -144,13 +156,13 @@ public class CorporationTest {
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void maxHandSizeTestNegative() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.setMaxHandSize(-1);
 	}
 	
 	@Test
 	public void drawCardTest() {	//drar kort från R&D där det ligger 2 kort
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addCardToRD(new Card("Noise"));
 		corp.addCardToRD(new Card("Snare!"));
 		Card drawnCard = corp.getTopCardRD();
@@ -161,14 +173,14 @@ public class CorporationTest {
 	
 	@Test
 	public void drawCardFromEmptyRD() {		//kontrollerar att Corp förlorar om man drar kort från tom R&D
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.drawCard();
 		assertTrue(corp.isLoser());
 	}
 	
 	@Test
 	public void drawCardFromRDWithOneCard() {	//kontrollerar om man kan dra kort från R&D om där ligger 1 kort
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addCardToRD(new Card("Noise"));
 		Card RDCard = corp.getTopCardRD();
 		corp.drawCard();
@@ -178,7 +190,7 @@ public class CorporationTest {
 	
 	@Test
 	public void trashCardFromHQTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addCardToRD(new Card("Noise"));
 		corp.drawCard();
 		corp.trashCardFromHQ(corp.getLastCardHQ());
@@ -186,20 +198,20 @@ public class CorporationTest {
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void trashCardFromEmptyHQTest() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.trashCardFromHQ(new Card("Noise"));
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void trashCardNotInHQ() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addCardToRD(new Card("Noise"));
 		corp.drawCard();
 		corp.trashCardFromHQ(new Card("Snare!"));
 	}
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void trashNullFromHQ() {
-		Corporation corp = new Corporation();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.trashCardFromHQ(null);
-	}*/
+	}
 }
