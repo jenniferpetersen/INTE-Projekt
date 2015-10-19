@@ -1,3 +1,5 @@
+package netrunner;
+
 
 public class RunnerCard extends Card{
 
