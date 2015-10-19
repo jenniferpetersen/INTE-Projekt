@@ -1,6 +1,7 @@
 package netrunner;
 
 import java.util.ArrayList; 
+import java.util.Random;
 
 class Runner extends Player{
 	
@@ -29,7 +30,7 @@ class Runner extends Player{
 		if(tags <= 0){
 			throw new IllegalArgumentException();
 		}
-		if (this.tags - tags < 0){
+		if (this.tags - tags <= 0){
 			throw new IllegalArgumentException();
 		}
 		else{
@@ -95,7 +96,18 @@ class Runner extends Player{
 			//Lackluster, improve?
 			System.out.println("Your stack is empty!");
 		}
-	
 	}
 
+	public void takeDamage(int damageAmount){
+		Random rand = new Random();
+		if(damageAmount > grip.size()){
+			System.out.println("You have flatlined. Good game, well played!");
+			setLoser(true);
+		}else{
+			for(int i = 0; i < damageAmount; i++){
+				int idx = rand.nextInt(grip.size());
+				grip.remove(idx);
+			}
+		}
+	}
 }
