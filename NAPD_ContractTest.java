@@ -78,6 +78,18 @@ public class NAPD_ContractTest {
 		assertEquals(2, corp.getAgendaPoints());
 	}
 	
+	@Test (expected = java.lang.NullPointerException.class) 
+	public void scoreNullCorpTest() {
+		NAPD_Contract napd = new NAPD_Contract();
+		
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		
+		napd.scoreAgenda(null);
+	}
+	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void scoreTooFewAdvTokensTest() {
 		Cerebral_Imaging corp = new Cerebral_Imaging();
