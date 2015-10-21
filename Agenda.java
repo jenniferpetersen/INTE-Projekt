@@ -21,7 +21,7 @@ abstract class Agenda extends CorpCard{
 		return advancementTokens;
 	}
 	
-	public void advance() {
+	protected void advance() {
 		advancementTokens += 1;
 	}
 	

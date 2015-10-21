@@ -32,6 +32,10 @@ abstract class Player {
 		addAgendaPoints(agenda.getAgendaPoints());
 	}
 	
+	public boolean isInScoreArea(Agenda a) {
+		return scoreArea.contains(a);
+	}
+	
 	public void useClick() {
 		if (clicks > 0) {
 			clicks -= 1;

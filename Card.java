@@ -12,6 +12,7 @@ public class Card {
  
 	public Card (String title) {
 		this.title = title;
+		//lägg till variabler
 	}
 	
 	public Card(String title, String typecode, String subTypeCode,
