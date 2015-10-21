@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class NAPD_ContractTest {
-
+	
 	@Test
 	public void stealTest() {
 		Runner runner = new Runner();
@@ -13,9 +13,10 @@ public class NAPD_ContractTest {
 		NAPD_Contract napd = new NAPD_Contract();
 		corp.addCardToRD(napd);
 		
-		napd.stealAgenda(corp, runner, "researchAndDevelopment");
+		napd.stealAgenda(corp, runner, "RD");
 		assertEquals(2, runner.getAgendaPoints());
 		assertEquals(1, runner.getCredits());
+		assertTrue(runner.isInScoreArea(napd));
 	}
 	
 	@Test (expected = java.lang.IllegalArgumentException.class)
@@ -76,6 +77,7 @@ public class NAPD_ContractTest {
 		
 		napd.scoreAgenda(corp);
 		assertEquals(2, corp.getAgendaPoints());
+		assertTrue(corp.isInScoreArea(napd));
 	}
 	
 	@Test (expected = java.lang.NullPointerException.class) 
@@ -88,6 +90,36 @@ public class NAPD_ContractTest {
 		napd.advance();
 		
 		napd.scoreAgenda(null);
+	}
+	
+	@Test
+	public void scoreWithBPSucceedTest() {
+		Corporation corp = new Cerebral_Imaging();
+		corp.addBadPublicity(1);
+		NAPD_Contract napd = new NAPD_Contract();
+		
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		
+		napd.scoreAgenda(corp);
+		assertEquals(2, corp.getAgendaPoints());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void scoreWithBadPublicityFailTest() {
+		Corporation corp = new Cerebral_Imaging();
+		corp.addBadPublicity(1);
+		NAPD_Contract napd = new NAPD_Contract();
+		
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		napd.advance();
+		
+		napd.scoreAgenda(corp);
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
@@ -105,7 +137,7 @@ public class NAPD_ContractTest {
 		NAPD_Contract napd = new NAPD_Contract();
 		corp.addCardToRD(napd);
 		
-		napd.stealAgenda(corp, runner, "researchAndDevelopment");
+		napd.stealAgenda(corp, runner, "RD");
 		assertTrue(corp.isRDEmpty());
 	}
 	

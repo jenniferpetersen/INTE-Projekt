@@ -141,9 +141,6 @@ public class RunnerTest {
 		Runner runner = new Runner();
 		runner.addTag(2);
 		runner.removeTag(4);
-	}
-	
-	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void removeTagsNegative(){
 		Runner runner = new Runner();
 		runner.removeTag(-1);
