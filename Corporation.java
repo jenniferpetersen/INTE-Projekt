@@ -14,6 +14,16 @@ abstract class Corporation extends Player{
 		badPublicity = 0;
 	} 
 	
+	protected ArrayList<Card> createRemoteServer() {
+		ArrayList<Card> remoteServer = new ArrayList<>();
+		return remoteServer;
+	}
+	
+	protected void installAsset(Asset a) {
+		ArrayList<Card> remoteServer = createRemoteServer();
+		remoteServer.add(a);
+	}
+	
 	public void advanceAgenda(Agenda a) {
 		if (a == null) {
 			throw new NullPointerException();
