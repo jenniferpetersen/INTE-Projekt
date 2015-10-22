@@ -9,15 +9,25 @@ public class AdonisCampaign extends Asset{
 				+ "Take 3 from Adonis Campaign when your turn begins.", 4, "Haas-Bioroid", "2", false, 3);
 	}
 
-	protected void installCard(Corporation corp) {
+	protected void installCard(Corporation corp) {	//om ingen remote server skickas med skapas en ny som kortet installeras i
 		corp.removeCardFromHQ(this);
-		corp.installAsset(this);	
+		corp.installAssetNewRemote(this);	
+	}
+	
+	protected void installCard(Corporation corp, ArrayList<Card> remote) { //installerar i en redan skapad remote server
+		corp.removeCardFromHQ(this);
+		corp.installAssetExistingRemote(this, remote);
 	}
 	
 	protected void trashCard(Runner runner, Corporation corp) {  
 		if (runner.getCredits() >= getTrashCost()) {
+			runner.loseCredits(getTrashCost());
 			corp.removeCardFromHQ(this);
 			corp.removeCardFromRD(this); //ta in ArrayList som parameter istället och ta bort direkt? En av dessa rader är onödig
+										//kortet finns bara i en av dessa, men tas nu bort ur båda.
+		}
+		else {
+			throw new IllegalArgumentException("Not enough credits to trash!");
 		}
 	}
 }
