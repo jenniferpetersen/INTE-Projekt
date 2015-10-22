@@ -13,12 +13,12 @@ public class AdonisCampaign extends Asset{
 
 	protected void installCard(Corporation corp) {	//om ingen remote server skickas med skapas en ny som kortet installeras i
 		corp.removeCardFromHQ(this);
-		installedServer = corp.installAssetNewRemote(this);
+		installedServer = corp.installCardNewRemote(this);
 	}
 	
 	protected void installCard(Corporation corp, ArrayList<Card> remote) { //installerar i en redan skapad remote server
 		corp.removeCardFromHQ(this);
-		corp.installAssetExistingRemote(this, remote);
+		corp.installCardExistingRemote(this, remote);
 		installedServer = remote;
 	}
 	
