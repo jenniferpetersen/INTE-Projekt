@@ -22,9 +22,10 @@ abstract class Corporation extends Player{
 		return remoteServer;
 	}
 	
-	protected void installAssetNewRemote(Asset a) {
+	protected ArrayList<Card> installAssetNewRemote(Asset a) {
 		ArrayList<Card> remoteServer = createRemoteServer();
 		remoteServer.add(a);
+		return remoteServer;
 	}
 	
 	protected void installAssetExistingRemote(Asset a, ArrayList<Card> remote) {
@@ -110,6 +111,10 @@ abstract class Corporation extends Player{
 	
 	public boolean isCardInHQ(Card c) {
 		return HQ.contains(c);
+	}
+	
+	protected boolean isCardInArchives(Card c) {
+		return archives.contains(c);
 	}
 	
 	public void trashCardFromHQ(Card c) {
