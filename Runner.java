@@ -2,6 +2,7 @@ package netrunner;
 
 import java.util.ArrayList; 
 import java.util.Random;
+import java.util.Scanner;
 
 class Runner extends Player{
 	
@@ -11,6 +12,7 @@ class Runner extends Player{
 	private ArrayList<Card> stack = new ArrayList<>();
 	private ArrayList<Card> grip = new ArrayList<>();
 	private ArrayList<Card> heap = new ArrayList<>();
+	private Scanner runnerInput = new Scanner(System.in);
 	
 	public Runner(){
 		super(4); 
@@ -177,6 +179,13 @@ class Runner extends Player{
 				((Agenda) c).stealAgenda(corp, this, "HQ");	
 			}else{
 				System.out.println(c.getTitle());
+				if(c instanceof Asset){
+					System.out.println("Do you want to trash this card? It will cost you " + ((Asset) c).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
+					String trashThisCard = runnerInput.next();
+					if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes")){
+						((Asset) c).trashCard(this, corp);
+					}
+				}
 			}
 		}
 	}
