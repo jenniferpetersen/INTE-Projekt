@@ -192,30 +192,28 @@ class Runner extends Player{
 			Card c = corp.exposeRandomHQCard(idx);
 			if(c instanceof Agenda){
 				((Agenda) c).stealAgenda(corp, this, "HQ");	
-			}else{
-				if(c instanceof Asset){
-					//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) c).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
-					//String trashThisCard = runnerInput.next();
-					//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
-					((Asset) c).trashCard(this, corp);
-					//Removed user input for ease of testing.
-				}
+			}else if(c instanceof Asset){
+				//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) c).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
+				//String trashThisCard = runnerInput.next();
+				//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
+				((Asset) c).trashCard(this, corp);
+				//Removed user input for ease of testing.
 			}
+			
 		}
 		if(runArea.equalsIgnoreCase("Archives")){
 			ArrayList<Card> cardlist = corp.successfulRunOnArchives();
 			for(Card c : cardlist){
 				if(c instanceof Agenda){
 					((Agenda) c).stealAgenda(corp, this, "archives");
-				}else{
-					if(c instanceof Asset){
-						//System.out.println(c.getTitle());
-						//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) c).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
-						//String trashThisCard = userInput.next();
-						//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
-						((Asset) c).trashCard(this, corp);
-						//Removed user input for ease of testing.
-					}
+				}else if(c instanceof Asset){						
+					//System.out.println(c.getTitle());
+					//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) c).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
+					//String trashThisCard = userInput.next();
+					//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
+					((Asset) c).trashCard(this, corp);
+					//Removed user input for ease of testing.
+					
 				}
 
 			}
@@ -224,14 +222,12 @@ class Runner extends Player{
 			Card rdc = corp.getTopCardRD();
 			if(rdc instanceof Agenda){
 				((Agenda) rdc).stealAgenda(corp, this, "HQ");	
-			}else{
-				if(rdc instanceof Asset){
-					//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) rdc).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
-					//String trashThisCard = runnerInput.next();
-					//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
-					((Asset) rdc).trashCard(this, corp);
-					//Removed user input for ease of testing.
-				}
+			}else if(rdc instanceof Asset){
+				//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) rdc).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
+				//String trashThisCard = runnerInput.next();
+				//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
+				((Asset) rdc).trashCard(this, corp);
+				//Removed user input for ease of testing.				
 			}
 		}
 	}
