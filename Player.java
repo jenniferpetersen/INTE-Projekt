@@ -44,7 +44,7 @@ abstract class Player {
 			}
 		}
 		else {
-			throw new java.lang.IllegalArgumentException();	//bättre exception?
+			throw new java.lang.IllegalArgumentException();	//battre exception?
 		}
 
 	}	
@@ -78,9 +78,11 @@ abstract class Player {
 			throw new IllegalArgumentException();
 		}
 		else {
-			credits -= change;
-			if (credits < 0) {
+			if (credits - change < 0) {
 				throw new java.lang.IllegalArgumentException("You cannot afford to spend that many credits!");
+			}
+			else{
+				credits -= change;
 			}
 		}
 	}
@@ -125,4 +127,3 @@ abstract class Player {
 		this.loser = loser;
 	}
 }
-

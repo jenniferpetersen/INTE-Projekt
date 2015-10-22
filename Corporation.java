@@ -150,4 +150,9 @@ abstract class Corporation extends Player{
 	public int getNoOfRemoteServers() {
 		return noOfRemoteServers;
 	}
+	
+	public Card exposeRandomHQCard(int i){
+		Card c = HQ.get(i);
+		return c;
+	}
 }
