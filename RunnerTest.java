@@ -290,9 +290,10 @@ public class RunnerTest {
 	public void makeSuccessfulRunOnHQTest(){
 		Runner runner = new Runner();
 		Cerebral_Imaging corp = new Cerebral_Imaging();
-		Card c = new Card("Adonis Project");
+		NAPD_Contract c = new NAPD_Contract();
 		corp.addCardToHQ(c);
 		runner.attemptRun(corp, "HQ");
-		assertTrue(runner.wasSuccessfulOnRun());
+		assertEquals(2, runner.getAgendaPoints());
+		assertEquals(1, runner.getCredits());
 	}
 }

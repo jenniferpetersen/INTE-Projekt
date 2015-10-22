@@ -172,7 +172,12 @@ class Runner extends Player{
 		if(runArea.equals("HQ")){
 			Random rand = new Random();
 			int idx = rand.nextInt(corp.getSizeHQ());
-			corp.exposeRandomHQCard(idx);
+			Card c = corp.exposeRandomHQCard(idx);
+			if(c instanceof Agenda){
+				((Agenda) c).stealAgenda(corp, this, "HQ");	
+			}else{
+				System.out.println(c.getTitle());
+			}
 		}
 	}
 }
