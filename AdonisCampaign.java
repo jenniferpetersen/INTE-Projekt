@@ -35,6 +35,9 @@ public class AdonisCampaign extends Asset{
 				trashInstalledCard(corp);
 			}
 		}
+		else {
+			throw new IllegalArgumentException();
+		}
 	}
 	
 	protected void takeCredits() {
