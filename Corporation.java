@@ -155,4 +155,13 @@ abstract class Corporation extends Player{
 		Card c = HQ.get(i);
 		return c;
 	}
+	
+	public void successfulRunOnArchives(Runner runner){
+		for(Card c : archives){
+			if(c instanceof Agenda){
+				((Agenda) c).stealAgenda(this, runner, "archives");
+			}
+		}
+		
+	}
 }

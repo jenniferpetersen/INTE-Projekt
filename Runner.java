@@ -155,12 +155,29 @@ class Runner extends Player{
 	public void attemptRun(Corporation corp, String runArea){	//How to run on remote servers?
 		if(runArea.equals("HQ")){
 			if(corp.getSizeHQ() == 0){
-				throw new IllegalArgumentException("No cards in HQ!");
+				throw new IllegalArgumentException("No cards in HQ!"); //Better exception?
 			}else{
 				//corp.getIceProtectingHQ;
 				//dealWithIce();
+				//if(cannot deal with ice) then endRunEarly();
 				makeSuccessfulRun(corp, runArea);
 			}
+		}
+		if(runArea.equals("Archives")){
+			if(corp.getSizeArchives() == 0){
+				throw new IllegalArgumentException("No cards in Archives!");
+			}else{
+				//corp.getIceProtectingArchives
+				//dealWithIce();
+				//if(cannot deal with ice) then endRunEarly();
+				makeSuccessfulRun(corp, runArea);
+			}
+		}
+		if(runArea.equals("R&D")){
+			//corp.getIceProtectingRnD
+			//dealWithIce();
+			//if(cannot deal with ice) then endRunEarly();
+			makeSuccessfulRun(corp, runArea);
 		}
 	}
 	
@@ -187,6 +204,9 @@ class Runner extends Player{
 					}
 				}
 			}
+		}
+		if(runArea.equals("Archives")){
+			corp.successfulRunOnArchives(this);
 		}
 	}
 }
