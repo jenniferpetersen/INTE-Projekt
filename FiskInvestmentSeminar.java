@@ -16,7 +16,7 @@ public class FiskInvestmentSeminar extends Event{
 				runner.drawCard();
 			}
 		}else{
-			throw new java.lang.IllegalArgumentException();
+			throw new java.lang.IllegalArgumentException("");
 		}
 	}
 	

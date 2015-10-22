@@ -9,7 +9,8 @@ public class HedgeFundTest {
 	@Test
 	public void playCardTest(){
 		Cerebral_Imaging corp = new Cerebral_Imaging();
-		corp.gainCredits(9);
+		HedgeFund hf = new HedgeFund();
+		hf.playCard(corp);
 		assertEquals(14, corp.getCredits());
 	}
 
