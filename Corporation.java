@@ -5,6 +5,7 @@ import java.util.ArrayList;
 abstract class Corporation extends Player{
 	
 	private int badPublicity;
+	private int noOfRemoteServers;
 	private ArrayList<Card> researchAndDevelopment = new ArrayList<>();
 	private ArrayList<Card> HQ = new ArrayList<>();
 	private ArrayList<Card> archives = new ArrayList<>();
@@ -12,19 +13,26 @@ abstract class Corporation extends Player{
 	public Corporation() {
 		super(3);
 		badPublicity = 0;
+		noOfRemoteServers = 0;
 	} 
 	
 	protected ArrayList<Card> createRemoteServer() {
 		ArrayList<Card> remoteServer = new ArrayList<>();
+		noOfRemoteServers += 1;
 		return remoteServer;
 	}
 	
-	protected void installAsset(Asset a) {
+	protected ArrayList<Card> installCardNewRemote(Card a) {
 		ArrayList<Card> remoteServer = createRemoteServer();
 		remoteServer.add(a);
+		return remoteServer;
 	}
 	
-	public void advanceAgenda(Agenda a) {
+	protected void installCardExistingRemote(Card a, ArrayList<Card> remote) {
+		remote.add(a);
+	}
+	
+	protected void advanceAgenda(Agenda a) {
 		if (a == null) {
 			throw new NullPointerException();
 		}
@@ -34,7 +42,7 @@ abstract class Corporation extends Player{
 		}
 	}
 	
-	public void addBadPublicity(int bp){
+	protected void addBadPublicity(int bp){
 		if (bp < 0){
 			throw new IllegalArgumentException();
 		}
@@ -105,6 +113,10 @@ abstract class Corporation extends Player{
 		return HQ.contains(c);
 	}
 	
+	protected boolean isCardInArchives(Card c) {
+		return archives.contains(c);
+	}
+	
 	public void trashCardFromHQ(Card c) {
 		if(isCardInHQ(c)) {
 			archives.add(c);
@@ -133,5 +145,9 @@ abstract class Corporation extends Player{
 	
 	public int getSizeHQ() {
 		return HQ.size();
+	}
+	
+	public int getNoOfRemoteServers() {
+		return noOfRemoteServers;
 	}
 }
