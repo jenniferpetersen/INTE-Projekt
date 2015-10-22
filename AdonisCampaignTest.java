@@ -42,6 +42,7 @@ public class AdonisCampaignTest {
 		assertEquals(2, runner.getCredits());
 		assertFalse(corp.isCardInHQ(ac));
 	}
+	
 	@Test (expected = java.lang.IllegalArgumentException.class)
 	public void testTrashCardLowCredits() {
 		Runner runner = new Runner();
@@ -76,6 +77,16 @@ public class AdonisCampaignTest {
 		ac.startOfTurn(corp);
 		assertEquals(9, ac.getCredits());
 		assertEquals(8, corp.getCredits());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testUseCreditsNotRezzed() {
+		Corporation corp = new Cerebral_Imaging();
+		AdonisCampaign ac = new AdonisCampaign();
+		corp.addCardToHQ(ac);
+		
+		ac.installCard(corp);
+		ac.startOfTurn(corp);
 	}
 	
 	@Test
