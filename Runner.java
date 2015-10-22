@@ -7,6 +7,7 @@ class Runner extends Player{
 	
 	private int tags;
 	private int memoryUnits; 
+	private boolean successfulRun = false;
 	private ArrayList<Card> stack = new ArrayList<>();
 	private ArrayList<Card> grip = new ArrayList<>();
 	private ArrayList<Card> heap = new ArrayList<>();
@@ -40,6 +41,12 @@ class Runner extends Player{
 	
 	public int getTags(){
 		return tags;
+	}
+	
+	public void removeTagsForClicks(){
+		useClick();
+		loseCredits(2);
+		removeTag(1);
 	}
 	
 	public void gainMemoryUnits(int mU){
@@ -105,6 +112,9 @@ class Runner extends Player{
 
 	public void takeDamage(int damageAmount){
 		Random rand = new Random();
+		if(damageAmount < 0){
+			throw new IllegalArgumentException();
+		}
 		if(damageAmount > grip.size()){
 			System.out.println("You have flatlined. Good game, well played!");
 			setLoser(true);
@@ -123,6 +133,51 @@ class Runner extends Player{
 		}
 		else {
 			throw new java.lang.IllegalArgumentException();
+		}
+	}
+	
+	public void buyCardForClick(){
+		useClick();
+		drawCard();
+	}
+	
+	public void buyCreditsForClicks(){
+		useClick();
+		gainCredits(1);
+	}
+	
+	public boolean wasSuccessfulOnRun(){
+		return successfulRun;
+	}
+	
+	public void attemptRun(Corporation corp, String runArea){	//How to run on remote servers?
+		if(runArea.equals("HQ")){
+			if(corp.getSizeHQ() == 0){
+				throw new IllegalArgumentException("No cards in HQ!");
+			}else{
+				//corp.getIceProtectingHQ;
+				//dealWithIce();
+				makeSuccessfulRun(corp, runArea);
+			}
+		}
+	}
+	
+	public void endRunEarly(){
+		useClick();
+	}
+	
+	public void makeSuccessfulRun(Corporation corp, String runArea){
+		useClick();
+		successfulRun = true;
+		if(runArea.equals("HQ")){
+			Random rand = new Random();
+			int idx = rand.nextInt(corp.getSizeHQ());
+			Card c = corp.exposeRandomHQCard(idx);
+			if(c instanceof Agenda){
+				((Agenda) c).stealAgenda(corp, this, "HQ");	
+			}else{
+				System.out.println(c.getTitle());
+			}
 		}
 	}
 }

@@ -68,7 +68,6 @@ public class RunnerTest {
 	public void loseTooManyCreditTestR(){
 		Runner runner = new Runner();
 		runner.loseCredits(6);
-		assertEquals(0, runner.getCredits());
 	}
 	
 	@Test
@@ -140,7 +139,7 @@ public class RunnerTest {
 	public void removeTagsTestNegativeSum(){
 		Runner runner = new Runner();
 		runner.addTag(2);
-		runner.removeTag(4);
+		runner.removeTag(4);	
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
@@ -240,6 +239,16 @@ public class RunnerTest {
 		assertTrue(runner.isLoser());
 	}
 	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void takeNegativeDamageTest(){
+		Runner runner = new Runner();
+		for(int i = 0; i < 5; i++){ //draw 5 cards
+			runner.addFiskInvestmentCardToStack();
+			runner.drawCard();
+		}
+		runner.takeDamage(-5);
+	}
+	
 	@Test
 	public void trashCardFromGripTest() {
 		Runner runner = new Runner();
@@ -247,5 +256,44 @@ public class RunnerTest {
 		runner.drawCard();
 		runner.trashCardFromGrip(runner.getLastCardInGrip());
 		assertEquals(false, runner.isHeapEmpty());
+	}
+	
+	@Test
+	public void buyCreditsTest(){
+		Runner runner = new Runner();
+		int a = runner.getCredits();
+		runner.buyCreditsForClicks();
+		int b = runner.getCredits();
+		assertTrue(b > a);
+		assertEquals(3, runner.getClicks());
+	}
+	
+	@Test
+	public void drawCardForClicksTest(){
+		Runner runner = new Runner();
+		runner.addFiskInvestmentCardToStack();
+		int a = runner.getAmountOfCardsInGrip();
+		runner.buyCardForClick();
+		int b = runner.getAmountOfCardsInGrip();
+		assertTrue(b > a);
+	}
+	
+	@Test
+	public void removeTagsForClicksTest(){
+		Runner runner = new Runner();
+		runner.addTag(2);
+		runner.removeTagsForClicks();
+		assertEquals(1, runner.getTags());
+	}
+	
+	@Test
+	public void makeSuccessfulRunOnHQTest(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToHQ(c);
+		runner.attemptRun(corp, "HQ");
+		assertEquals(2, runner.getAgendaPoints());
+		assertEquals(1, runner.getCredits());
 	}
 }
