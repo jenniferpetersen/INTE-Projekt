@@ -140,7 +140,10 @@ public class RunnerTest {
 	public void removeTagsTestNegativeSum(){
 		Runner runner = new Runner();
 		runner.addTag(2);
-		runner.removeTag(4);
+		runner.removeTag(4);	
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void removeTagsNegative(){
 		Runner runner = new Runner();
 		runner.removeTag(-1);
@@ -237,6 +240,16 @@ public class RunnerTest {
 		assertTrue(runner.isLoser());
 	}
 	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void takeNegativeDamageTest(){
+		Runner runner = new Runner();
+		for(int i = 0; i < 5; i++){ //draw 5 cards
+			runner.addFiskInvestmentCardToStack();
+			runner.drawCard();
+		}
+		runner.takeDamage(-5);
+	}
+	
 	@Test
 	public void trashCardFromGripTest() {
 		Runner runner = new Runner();
@@ -244,5 +257,12 @@ public class RunnerTest {
 		runner.drawCard();
 		runner.trashCardFromGrip(runner.getLastCardInGrip());
 		assertEquals(false, runner.isHeapEmpty());
+	}
+	
+	@Test
+	public void makeRunOnHQTest(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		runner.makeRun(corp, "HQ");
 	}
 }

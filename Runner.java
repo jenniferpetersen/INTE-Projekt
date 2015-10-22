@@ -105,6 +105,9 @@ class Runner extends Player{
 
 	public void takeDamage(int damageAmount){
 		Random rand = new Random();
+		if(damageAmount < 0){
+			throw new IllegalArgumentException();
+		}
 		if(damageAmount > grip.size()){
 			System.out.println("You have flatlined. Good game, well played!");
 			setLoser(true);
@@ -124,5 +127,9 @@ class Runner extends Player{
 		else {
 			throw new java.lang.IllegalArgumentException();
 		}
+	}
+	
+	public void makeRun(){
+		
 	}
 }
