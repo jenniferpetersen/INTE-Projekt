@@ -1,6 +1,6 @@
 package netrunner;
 
-public class CorpCard extends Card{
+abstract class CorpCard extends Card{
 	
 	private int advancementTokens;
 	

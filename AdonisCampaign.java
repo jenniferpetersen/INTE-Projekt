@@ -28,10 +28,15 @@ public class AdonisCampaign extends Asset{
 	}
 	
 	protected void startOfTurn(Corporation corp) {
-		corp.gainCredits(3);
-		takeCredits();
-		if (credits == 0) {
-			trashInstalledCard(corp);
+		if (isRezzed()) {
+			corp.gainCredits(3);
+			takeCredits();
+			if (credits == 0) {
+				trashInstalledCard(corp);
+			}
+		}
+		else {
+			throw new IllegalArgumentException();
 		}
 	}
 	
