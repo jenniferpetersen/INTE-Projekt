@@ -42,6 +42,12 @@ class Runner extends Player{
 		return tags;
 	}
 	
+	public void removeTagsForClicks(){
+		useClick();
+		loseCredits(2);
+		removeTag(1);
+	}
+	
 	public void gainMemoryUnits(int mU){
 		if (mU <= 0){
 			throw new IllegalArgumentException();
@@ -129,7 +135,17 @@ class Runner extends Player{
 		}
 	}
 	
-	public void makeRun(){
+	public void buyCardForClick(){
+		useClick();
+		drawCard();
+	}
+	
+	public void buyCreditsForClicks(){
+		useClick();
+		gainCredits(1);
+	}
+	
+	public void makeRun(Corporation corp, String runArea){
 		
 	}
 }
