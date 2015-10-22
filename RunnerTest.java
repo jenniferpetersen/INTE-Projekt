@@ -298,12 +298,42 @@ public class RunnerTest {
 	}
 	
 	@Test
-	public void makeSuccessfulRunOnHQTest(){
+	public void makeSuccessfulAssetRunOnHQTest(){
 		Runner runner = new Runner();
 		Cerebral_Imaging corp = new Cerebral_Imaging();
 		AdonisCampaign c = new AdonisCampaign();
 		corp.addCardToHQ(c);
 		runner.attemptRun(corp, "HQ");
 		assertTrue(runner.wasSuccessfulOnRun());
+	}
+	
+	@Test
+	public void makeSuccessfulAgendaRunOnRD(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToRD(c);
+		runner.attemptRun(corp, "RD");
+		assertEquals(2, runner.getAgendaPoints());
+	}
+	
+	@Test
+	public void makeSuccessfulAssetRunOnRD(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		AdonisCampaign c = new AdonisCampaign();
+		corp.addCardToRD(c);
+		runner.attemptRun(corp, "RD");
+		assertTrue(runner.wasSuccessfulOnRun());
+	}
+	
+	@Test
+	public void makeSuccessfulAgendaRunOnArchives(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToArchives(c);
+		runner.attemptRun(corp, "archives");
+		assertEquals(2, runner.getAgendaPoints());
 	}
 }

@@ -1,6 +1,7 @@
 package netrunner;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 abstract class Corporation extends Player{
 	
@@ -9,6 +10,7 @@ abstract class Corporation extends Player{
 	private ArrayList<Card> researchAndDevelopment = new ArrayList<>();
 	private ArrayList<Card> HQ = new ArrayList<>();
 	private ArrayList<Card> archives = new ArrayList<>();
+	private Scanner userInput = new Scanner(System.in);
 	
 	public Corporation() {
 		super(3);
@@ -156,12 +158,11 @@ abstract class Corporation extends Player{
 		return c;
 	}
 	
-	public void successfulRunOnArchives(Runner runner){
+	public ArrayList<Card> successfulRunOnArchives(){
+		ArrayList<Card> cardlist = new ArrayList<>();
 		for(Card c : archives){
-			if(c instanceof Agenda){
-				((Agenda) c).stealAgenda(this, runner, "archives");
-			}
+			cardlist.add(c);
 		}
-		
+		return cardlist;
 	}
 }
