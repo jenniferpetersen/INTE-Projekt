@@ -287,7 +287,7 @@ public class RunnerTest {
 	}
 	
 	@Test
-	public void makeSuccessfulRunOnHQTest(){
+	public void makeSuccessfulAgendaRunOnHQTest(){
 		Runner runner = new Runner();
 		Cerebral_Imaging corp = new Cerebral_Imaging();
 		NAPD_Contract c = new NAPD_Contract();
@@ -295,5 +295,136 @@ public class RunnerTest {
 		runner.attemptRun(corp, "HQ");
 		assertEquals(2, runner.getAgendaPoints());
 		assertEquals(1, runner.getCredits());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void makeFailedAgendaRunOnHQTest(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToHQ(c);
+		runner.loseCredits(5);
+		runner.attemptRun(corp, "HQ");
+	}
+	
+	@Test
+	public void makeSuccessfulAssetRunOnHQTest(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		AdonisCampaign c = new AdonisCampaign();
+		corp.addCardToHQ(c);
+		runner.attemptRun(corp, "HQ");
+		assertTrue(runner.wasSuccessfulOnRun());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void makeFailedAssetRunOnHQTest(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		AdonisCampaign c = new AdonisCampaign();
+		corp.addCardToHQ(c);
+		runner.loseCredits(5);
+		runner.attemptRun(corp, "HQ");
+	}
+	
+	@Test
+	public void makeSuccessfulAgendaRunOnRD(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToRD(c);
+		runner.attemptRun(corp, "RD");
+		assertEquals(2, runner.getAgendaPoints());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void makeFailedAgendaRunOnRD(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToRD(c);
+		runner.loseCredits(3);
+		runner.attemptRun(corp, "RD");
+	}
+	
+	@Test
+	public void makeSuccessfulAssetRunOnRD(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		AdonisCampaign c = new AdonisCampaign();
+		corp.addCardToRD(c);
+		runner.attemptRun(corp, "RD");
+		assertTrue(runner.wasSuccessfulOnRun());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void makeFailedAssetRunOnRDTest(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		AdonisCampaign c = new AdonisCampaign();
+		corp.addCardToRD(c);
+		runner.loseCredits(5);
+		runner.attemptRun(corp, "RD");
+	}
+	
+	@Test
+	public void makeSuccessfulAgendaRunOnArchives(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToArchives(c);
+		runner.attemptRun(corp, "archives");
+		assertEquals(2, runner.getAgendaPoints());
+	}
+	
+	@Test
+	public void makeSuccessfulAssetRunOnArchives(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		AdonisCampaign c = new AdonisCampaign();
+		corp.addCardToArchives(c);
+		runner.attemptRun(corp, "Archives");
+		assertTrue(runner.wasSuccessfulOnRun());
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void makeFailedAssetRunOnArchivesTest(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		AdonisCampaign c = new AdonisCampaign();
+		corp.addCardToArchives(c);
+		runner.loseCredits(5);
+		runner.attemptRun(corp, "Archives");
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void makeFailedAgendaRunOnArchives(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToArchives(c);
+		runner.loseCredits(3);
+		runner.attemptRun(corp, "archives");
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void attemptRunAtEmptyHQ(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		runner.attemptRun(corp, "HQ");
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void attemptRunAtEmptyArchives(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		runner.attemptRun(corp, "Archives");
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void attemptRunAtNoSpecificCard(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		runner.attemptRun(corp, "Archives");
 	}
 }
