@@ -7,6 +7,7 @@ class Runner extends Player{
 	
 	private int tags;
 	private int memoryUnits; 
+	private boolean successfulRun = false;
 	private ArrayList<Card> stack = new ArrayList<>();
 	private ArrayList<Card> grip = new ArrayList<>();
 	private ArrayList<Card> heap = new ArrayList<>();
@@ -145,7 +146,33 @@ class Runner extends Player{
 		gainCredits(1);
 	}
 	
-	public void makeRun(Corporation corp, String runArea){
-		
+	public boolean wasSuccessfulOnRun(){
+		return successfulRun;
+	}
+	
+	public void attemptRun(Corporation corp, String runArea){	//How to run on remote servers?
+		if(runArea.equals("HQ")){
+			if(corp.getSizeHQ() == 0){
+				throw new IllegalArgumentException("No cards in HQ!");
+			}else{
+				//corp.getIceProtectingHQ;
+				//dealWithIce();
+				makeSuccessfulRun(corp, runArea);
+			}
+		}
+	}
+	
+	public void endRunEarly(){
+		useClick();
+	}
+	
+	public void makeSuccessfulRun(Corporation corp, String runArea){
+		useClick();
+		successfulRun = true;
+		if(runArea.equals("HQ")){
+			Random rand = new Random();
+			int idx = rand.nextInt(corp.getSizeHQ());
+			corp.exposeRandomHQCard(idx);
+		}
 	}
 }

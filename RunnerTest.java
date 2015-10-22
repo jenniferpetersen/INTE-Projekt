@@ -287,10 +287,12 @@ public class RunnerTest {
 	}
 	
 	@Test
-	public void makeRunOnHQTest(){
+	public void makeSuccessfulRunOnHQTest(){
 		Runner runner = new Runner();
 		Cerebral_Imaging corp = new Cerebral_Imaging();
-		runner.makeRun(corp, "HQ");
-		assertEquals(corp.get)
+		Card c = new Card("Adonis Project");
+		corp.addCardToHQ(c);
+		runner.attemptRun(corp, "HQ");
+		assertTrue(runner.wasSuccessfulOnRun());
 	}
 }
