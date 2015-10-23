@@ -1,6 +1,6 @@
 package netrunner;
 
-public class Event extends RunnerCard{
+abstract class Event extends RunnerCard{
 
 	
 	public Event(String title, String subTypeCode, String text, int cost,

@@ -1,6 +1,6 @@
 package netrunner;
 
-public class Program extends RunnerCard{
+abstract class Program extends RunnerCard{
 	
 	public Program(String title, String subTypeCode, String text, int cost, 
 			String factionCode, String factionCost,
