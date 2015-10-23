@@ -1,6 +1,6 @@
 package netrunner;
 
-public class Card {
+abstract class Card {
 	private String title;
 	private String subTypeCode;
 	private String text;
