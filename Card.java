@@ -9,11 +9,6 @@ abstract class Card {
 	private String faction_code; 
 	private String factioncost; 
 	private String type_code; 
- 
-	public Card (String title) {
-		this.title = title;
-		//l�gg till variabler
-	}
 	
 	public Card(String title, String typecode, String subTypeCode,
 			String text, int cost, String factionCode, String factionCost, 
@@ -67,11 +62,5 @@ abstract class Card {
 
 	public boolean isUniqueness() {
 		return uniqueness;
-	}
-
-	
-	@Override
-	public String toString() {
-		return title;
 	}
 }

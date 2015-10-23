@@ -37,35 +37,51 @@ public class FiskInvestmentSeminarTest {
 	}
 	
 	@Test
-	public void testTitle() throws Exception{
+	public void testTitle()  {
 		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar();
 		assertEquals("Fisk Investment Seminar", fisk.getTitle());
 	}
 
 	@Test
-	public void testTypeCode() throws Exception{
+	public void testTypeCode()  {
 		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar();
 		assertEquals("event", fisk.getTypeCode());
 	}
+	
 	@Test
-	public void testText() throws Exception{
+	public void testText()  {
 		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar();
 		assertEquals("Play only as your first [Click].\r\nEach player draws 3 cards.", fisk.getText());
-	}@Test
-	public void testCost() throws Exception{
+	}
+	
+	@Test
+	public void testCost()  {
 		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar();
 		assertEquals(0, fisk.getCost());
-	}@Test
-	public void testFactionCode() throws Exception{
+	}
+	
+	@Test
+	public void testFactionCode()  {
 		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar();
 		assertEquals("criminal", fisk.getFactionCode());
-	}@Test
-	public void testFactioncost() throws Exception{
+	}
+	
+	@Test
+	public void testFactioncost()  {
 		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar();
 		assertEquals("2", fisk.getFactionCost());
-	}@Test 
-	public void testUniqueness() throws Exception{
+	}
+	
+	@Test 
+	public void testUniqueness()  {
 		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar();
 		assertEquals(false, fisk.isUniqueness());
 	}
+	
+	@Test
+	public void testSubTypeCode(){
+		FiskInvestmentSeminar fisk = new FiskInvestmentSeminar();
+		assertEquals("Priority", fisk.getSubTypeCode());
+	}
+	
 }
