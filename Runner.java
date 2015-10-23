@@ -169,11 +169,7 @@ class Runner extends Player{
 			makeSuccessfulRun(corp, runArea);
 		}
 	}
-	
-	public void endRunEarly(){
-		useClick();
-	}
-	
+
 	public void makeSuccessfulRun(Corporation corp, String runArea){
 		useClick();
 		successfulRun = true;
