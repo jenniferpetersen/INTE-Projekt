@@ -28,10 +28,7 @@ class Runner extends Player{
 	}
 	
 	public void removeTag(int tags){
-		if(tags <= 0){
-			throw new IllegalArgumentException();
-		}
-		if (this.tags - tags < 0){
+		if(tags <= 0 || this.tags - tags < 0){
 			throw new IllegalArgumentException();
 		}
 		else{
@@ -59,11 +56,8 @@ class Runner extends Player{
 	}
 
 	public void useMemoryUnits(int mU){
-		if(mU <= 0){
+		if(mU <= 0 || this.memoryUnits - mU < 0){
 			throw new IllegalArgumentException();
-		}
-		if(this.memoryUnits - mU < 0){
-			throw new IllegalArgumentException("You don't have enough memory to play that card!");
 		}
 		else {
 			memoryUnits -= mU; 
@@ -103,9 +97,6 @@ class Runner extends Player{
 		if(stack.size() > 0) {
 			grip.add(getTopCardFromStack());
 			stack.remove(getTopCardFromStack());
-		//}else{
-			//Lackluster, improve?
-			//System.out.println("Your stack is empty!");
 		}
 	}
 	
