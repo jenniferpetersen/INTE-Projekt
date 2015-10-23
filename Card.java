@@ -1,6 +1,6 @@
 package netrunner;
 
-public class Card {
+abstract class Card {
 	private String title;
 	private String subTypeCode;
 	private String text;
@@ -12,7 +12,7 @@ public class Card {
  
 	public Card (String title) {
 		this.title = title;
-		//lägg till variabler
+		//lï¿½gg till variabler
 	}
 	
 	public Card(String title, String typecode, String subTypeCode,
@@ -29,10 +29,6 @@ public class Card {
 		this.uniqueness = uniqueness;
 
 		
-	}
-
-
-	public Card(Card card) {
 	}
 
 	public String getTitle() {
