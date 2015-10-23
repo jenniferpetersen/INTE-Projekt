@@ -79,7 +79,7 @@ class Runner extends Player{
 	}
 	
 	public void addFiskInvestmentCardToStack(){
-		Card card1 = new Card("Fisk Investment Seminar");
+		Card card1 = new FiskInvestmentSeminar(); 
 		stack.add(card1);
 	}
 	
