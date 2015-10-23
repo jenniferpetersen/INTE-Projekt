@@ -1,7 +1,7 @@
 package netrunner;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 abstract class Corporation extends Player{
 	
@@ -10,7 +10,7 @@ abstract class Corporation extends Player{
 	private ArrayList<Card> researchAndDevelopment = new ArrayList<>();
 	private ArrayList<Card> HQ = new ArrayList<>();
 	private ArrayList<Card> archives = new ArrayList<>();
-	private Scanner userInput = new Scanner(System.in);
+	
 	
 	public Corporation() {
 		super(3);
