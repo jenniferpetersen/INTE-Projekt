@@ -28,10 +28,7 @@ class Runner extends Player{
 	}
 	
 	public void removeTag(int tags){
-		if(tags <= 0){
-			throw new IllegalArgumentException();
-		}
-		if (this.tags - tags < 0){
+		if(tags <= 0 || this.tags - tags < 0){
 			throw new IllegalArgumentException();
 		}
 		else{
@@ -59,11 +56,8 @@ class Runner extends Player{
 	}
 
 	public void useMemoryUnits(int mU){
-		if(mU <= 0){
+		if(mU <= 0 || this.memoryUnits - mU < 0){
 			throw new IllegalArgumentException();
-		}
-		if(this.memoryUnits - mU < 0){
-			throw new IllegalArgumentException("You don't have enough memory to play that card!");
 		}
 		else {
 			memoryUnits -= mU; 
@@ -103,9 +97,6 @@ class Runner extends Player{
 		if(stack.size() > 0) {
 			grip.add(getTopCardFromStack());
 			stack.remove(getTopCardFromStack());
-		}else{
-			//Lackluster, improve?
-			System.out.println("Your stack is empty!");
 		}
 	}
 	
@@ -116,7 +107,7 @@ class Runner extends Player{
 			throw new IllegalArgumentException();
 		}
 		if(damageAmount > grip.size()){
-			System.out.println("You have flatlined. Good game, well played!");
+			//System.out.println("You have flatlined. Good game, well played!");
 			setLoser(true);
 		}else{
 			for(int i = 0; i < damageAmount; i++){
@@ -151,14 +142,31 @@ class Runner extends Player{
 	}
 	
 	public void attemptRun(Corporation corp, String runArea){	//How to run on remote servers?
-		if(runArea.equals("HQ")){
+		if(runArea.equalsIgnoreCase("HQ")){
 			if(corp.getSizeHQ() == 0){
-				throw new IllegalArgumentException("No cards in HQ!");
+				throw new IllegalArgumentException("No cards in HQ!"); //Better exception?
 			}else{
 				//corp.getIceProtectingHQ;
 				//dealWithIce();
+				//if(cannot deal with ice) then endRunEarly();
 				makeSuccessfulRun(corp, runArea);
 			}
+		}
+		if(runArea.equalsIgnoreCase("Archives")){
+			if(corp.getSizeArchives() == 0){
+				throw new IllegalArgumentException("No cards in Archives!");
+			}else{
+				//corp.getIceProtectingArchives
+				//dealWithIce();
+				//if(cannot deal with ice) then endRunEarly();
+				makeSuccessfulRun(corp, runArea);
+			}
+		}
+		if(runArea.equalsIgnoreCase("RD")){
+			//corp.getIceProtectingRnD
+			//dealWithIce();
+			//if(cannot deal with ice) then endRunEarly();
+			makeSuccessfulRun(corp, runArea);
 		}
 	}
 	
@@ -169,14 +177,48 @@ class Runner extends Player{
 	public void makeSuccessfulRun(Corporation corp, String runArea){
 		useClick();
 		successfulRun = true;
-		if(runArea.equals("HQ")){
+		if(runArea.equalsIgnoreCase("HQ")){
 			Random rand = new Random();
 			int idx = rand.nextInt(corp.getSizeHQ());
 			Card c = corp.exposeRandomHQCard(idx);
 			if(c instanceof Agenda){
 				((Agenda) c).stealAgenda(corp, this, "HQ");	
-			}else{
-				System.out.println(c.getTitle());
+			}else if(c instanceof Asset){
+				//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) c).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
+				//String trashThisCard = runnerInput.next();
+				//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
+				((Asset) c).trashCard(this, corp);
+				//Removed user input for ease of testing.
+			}
+			
+		}
+		if(runArea.equalsIgnoreCase("Archives")){
+			ArrayList<Card> cardlist = corp.successfulRunOnArchives();
+			for(Card c : cardlist){
+				if(c instanceof Agenda){
+					((Agenda) c).stealAgenda(corp, this, "archives");
+				}else if(c instanceof Asset){						
+					//System.out.println(c.getTitle());
+					//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) c).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
+					//String trashThisCard = userInput.next();
+					//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
+					((Asset) c).trashCard(this, corp);
+					//Removed user input for ease of testing.
+					
+				}
+
+			}
+		}
+		if(runArea.equalsIgnoreCase("RD")){
+			Card rdc = corp.getTopCardRD();
+			if(rdc instanceof Agenda){
+				((Agenda) rdc).stealAgenda(corp, this, "HQ");	
+			}else if(rdc instanceof Asset){
+				//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) rdc).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
+				//String trashThisCard = runnerInput.next();
+				//if(trashThisCard.equalsIgnoreCase("y") || trashThisCard.equalsIgnoreCase("yes"))
+				((Asset) rdc).trashCard(this, corp);
+				//Removed user input for ease of testing.				
 			}
 		}
 	}

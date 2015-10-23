@@ -1,6 +1,6 @@
 package netrunner;
 
-public class Ice extends CorpCard{
+abstract class Ice extends CorpCard{
 
 	public Ice(String title, String subTypeCode, String text, int cost,
 			String factionCode, String factionCost, boolean uniqueness) {
