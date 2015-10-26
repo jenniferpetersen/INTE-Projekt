@@ -9,12 +9,7 @@ abstract class CorpCard extends Card{
 		super(title, typecode, subTypeCode, text, cost, factionCode, factionCost, uniqueness);
 		advancementTokens = 0;
 	}
-	
-	public CorpCard(String title){
-		super(title);
-	}
-	
-	
+
 	public int getAdvancementTokens(){
 		return advancementTokens;
 	}

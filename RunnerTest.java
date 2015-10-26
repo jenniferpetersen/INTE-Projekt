@@ -381,7 +381,7 @@ public class RunnerTest {
 		Cerebral_Imaging corp = new Cerebral_Imaging();
 		NAPD_Contract c = new NAPD_Contract();
 		corp.addCardToArchives(c);
-		runner.attemptRun(corp, "archives");
+		runner.attemptRun(corp, "Archives");
 		assertEquals(2, runner.getAgendaPoints());
 	}
 	
