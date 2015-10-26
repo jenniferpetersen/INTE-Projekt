@@ -192,7 +192,7 @@ class Runner extends Player{
 			ArrayList<Card> cardlist = corp.successfulRunOnArchives();
 			for(Card c : cardlist){
 				if(c instanceof Agenda){
-					((Agenda) c).stealAgenda(corp, this, "archives");
+					((Agenda) c).stealAgenda(corp, this, "Archives");
 				}else if(c instanceof Asset){						
 					//System.out.println(c.getTitle());
 					//System.out.println("Do you want to trash this card? It will cost you " + ((Asset) c).getTrashCost() + " credits. Type 'y' for yes, 'n' for no: ");
