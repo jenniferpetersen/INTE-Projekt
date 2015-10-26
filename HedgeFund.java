@@ -7,7 +7,7 @@ public class HedgeFund extends Operation{
 	}
 	
 	protected void playCard(Corporation corp){
-		if (corp.getCredits() >= 5) {
+		if (corp.getCredits() >= this.getCost()) {
 			corp.gainCredits(9);
 			corp.removeCardFromHQ(this);
 			corp.addCardToArchives(this);
