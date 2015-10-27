@@ -258,6 +258,14 @@ public class RunnerTest {
 		assertEquals(false, runner.isHeapEmpty());
 	}
 	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void trashCardFromEmptyGripTest(){
+		Runner runner = new Runner();
+		FiskInvestmentSeminar fis = new FiskInvestmentSeminar();
+		runner.trashCardFromGrip(fis);
+		assertEquals(true, runner.isHeapEmpty());
+	}
+	
 	@Test
 	public void buyCreditsTest(){
 		Runner runner = new Runner();

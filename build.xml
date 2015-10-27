@@ -1,0 +1,19 @@
+<project name="Netrunner" default ="runjunit">
+	<target name="runjunit" depends="compile">
+		<junit printsummary="on">
+			<formatter type="plain" usefile="false" />
+            <batchtest fork="yes">
+                <fileset dir="C:/Users/Jennifer/workspace/TestaSaker/test">                  
+                    <include name="*Test.class"/>
+                </fileset>
+            </batchtest>
+			<classpath>
+				<pathelement location="C:/Users/Jennifer/Downloads/eclipse-java-luna-SR1-win32-x86_64/eclipse/plugins/org.junit_4.11.0.v201303080030/junit.jar"/>
+				<pathelement location = "C:/Users/Jennifer/workspace/TestaSaker/test"/>
+			</classpath>
+		</junit>
+	</target>
+	<target name="compile">
+		<javac includeantruntime="false" srcdir="." destdir="C:\Users\Jennifer\workspace\TestaSaker\test" classpath = "C:\Users\Jennifer\Downloads\eclipse-java-luna-SR1-win32-x86_64\eclipse\plugins\org.junit_4.11.0.v201303080030\junit.jar"/>
+	</target>
+</project>

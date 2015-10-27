@@ -1,6 +1,6 @@
 package netrunner;
 
-public class Hardware extends RunnerCard {
+abstract class Hardware extends RunnerCard {
 	
 	public Hardware(String title, String subTypeCode, String text, int cost,
 			String factionCode, String factionCost,
