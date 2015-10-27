@@ -1,10 +1,8 @@
 package netrunner;
 
-import java.util.ArrayList;
-
 public class NAPD_Contract extends Agenda{
 	
-	//lägg in metod för att installera i ny eller existerande remote server!
+	//lï¿½gg in metod fï¿½r att installera i ny eller existerande remote server!
 	
 	public NAPD_Contract() {
 		super("NAPD Contract", "security", "The advancement requirement of NAPD Contract is increased by 1 for each bad publicity the Corp has. "

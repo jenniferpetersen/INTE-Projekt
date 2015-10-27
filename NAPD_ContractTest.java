@@ -70,11 +70,7 @@ public class NAPD_ContractTest {
 		Cerebral_Imaging corp = new Cerebral_Imaging();
 		NAPD_Contract napd = new NAPD_Contract();
 		
-		napd.advance();
-		napd.advance();
-		napd.advance();
-		napd.advance();
-		
+		napd.addAdvancementTokens(4);
 		napd.scoreAgenda(corp);
 		assertEquals(2, corp.getAgendaPoints());
 		assertTrue(corp.isInScoreArea(napd));
@@ -83,12 +79,7 @@ public class NAPD_ContractTest {
 	@Test (expected = java.lang.NullPointerException.class) 
 	public void scoreNullCorpTest() {
 		NAPD_Contract napd = new NAPD_Contract();
-		
-		napd.advance();
-		napd.advance();
-		napd.advance();
-		napd.advance();
-		
+		napd.addAdvancementTokens(4);
 		napd.scoreAgenda(null);
 	}
 	
@@ -98,11 +89,7 @@ public class NAPD_ContractTest {
 		corp.addBadPublicity(1);
 		NAPD_Contract napd = new NAPD_Contract();
 		
-		napd.advance();
-		napd.advance();
-		napd.advance();
-		napd.advance();
-		napd.advance();
+		napd.addAdvancementTokens(5);
 		
 		napd.scoreAgenda(corp);
 		assertEquals(2, corp.getAgendaPoints());
@@ -114,10 +101,7 @@ public class NAPD_ContractTest {
 		corp.addBadPublicity(1);
 		NAPD_Contract napd = new NAPD_Contract();
 		
-		napd.advance();
-		napd.advance();
-		napd.advance();
-		napd.advance();
+		napd.addAdvancementTokens(4);
 		
 		napd.scoreAgenda(corp);
 	}
