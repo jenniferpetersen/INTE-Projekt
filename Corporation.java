@@ -39,7 +39,8 @@ abstract class Corporation extends Player{
 			throw new NullPointerException();
 		}
 		else {
-			a.buyAdvancementTokens(this);
+			a.advance();
+			loseCredits(1);
 		}
 	}
 	

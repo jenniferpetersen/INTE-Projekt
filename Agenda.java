@@ -17,39 +17,12 @@ abstract class Agenda extends CorpCard{
 		return agendaPoints;
 	}
 	
-	public int getAdvancementTokens(){
+	public int getAdvancementTokens() {
 		return advancementTokens;
 	}
 	
-	public void addAdvancementTokens(int advancementTokens){
-		if (advancementTokens < 0){
-			throw new IllegalArgumentException();
-		}
-		else{
-			this.advancementTokens += advancementTokens;
-		}
-	}
-	
-	public void removeAdvancementTokens(int advancementTokens){
-		if(advancementTokens <= 0){
-			throw new IllegalArgumentException();
-		}
-		if (this.advancementTokens <= 0){
-			throw new IllegalArgumentException();
-		}
-		else{
-			this.advancementTokens -= advancementTokens;
-		}
-	}
-	
-	public void buyAdvancementTokens(Corporation corp){
-		if(corp.getCredits() < 1){
-			throw new IllegalArgumentException("Not enough credits!");
-		}else{
-			corp.useClick();
-			corp.loseCredits(1);
-			addAdvancementTokens(1);
-		}
+	protected void advance() {
+		advancementTokens += 1;
 	}
 	
 	abstract void stealAgenda(Corporation corp, Runner runner, String accessedServer);
