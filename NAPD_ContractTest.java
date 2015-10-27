@@ -146,5 +146,47 @@ public class NAPD_ContractTest {
 		napd.stealAgenda(corp, runner, "HQ");
 		assertEquals(0, corp.getSizeHQ());
 	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void addAdvancementTokensFail(){
+		NAPD_Contract napd = new NAPD_Contract();
+		napd.addAdvancementTokens(-2);
+	}
 
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void removeAdvancementTokensFail(){
+		NAPD_Contract napd = new NAPD_Contract();
+		napd.addAdvancementTokens(2);
+		napd.removeAdvancementTokens(0);
+	}
+
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void removeAdvancementTokensNegativeFail(){
+		NAPD_Contract napd = new NAPD_Contract();
+		napd.addAdvancementTokens(2);
+		napd.removeAdvancementTokens(4);
+	}
+	
+	@Test
+	public void removeAdvancementTokensSucceed(){
+		NAPD_Contract napd = new NAPD_Contract();
+		napd.addAdvancementTokens(2);
+		napd.removeAdvancementTokens(1);
+	}
+	
+	@Test(expected = java.lang.IllegalArgumentException.class)
+	public void buyAdvancementTokensFail(){
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract napd = new NAPD_Contract();
+		corp.loseCredits(5);
+		napd.buyAdvancementTokens(corp);
+	}
+	
+	@Test
+	public void buyAdvancementTokensSucceed(){
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract napd = new NAPD_Contract();
+		napd.buyAdvancementTokens(corp);
+	}
 }
+
