@@ -34,7 +34,7 @@ abstract class Agenda extends CorpCard{
 		if(advancementTokens <= 0){
 			throw new IllegalArgumentException();
 		}
-		if (this.advancementTokens <= 0){
+		if (this.advancementTokens - advancementTokens < 0){
 			throw new IllegalArgumentException();
 		}
 		else{
