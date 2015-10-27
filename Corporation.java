@@ -1,7 +1,7 @@
 package netrunner;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 abstract class Corporation extends Player{
 	
@@ -10,7 +10,7 @@ abstract class Corporation extends Player{
 	private ArrayList<Card> researchAndDevelopment = new ArrayList<>();
 	private ArrayList<Card> HQ = new ArrayList<>();
 	private ArrayList<Card> archives = new ArrayList<>();
-	private Scanner userInput = new Scanner(System.in);
+	
 	
 	public Corporation() {
 		super(3);
@@ -39,8 +39,7 @@ abstract class Corporation extends Player{
 			throw new NullPointerException();
 		}
 		else {
-			a.advance();
-			loseCredits(1);
+			a.buyAdvancementTokens(this);
 		}
 	}
 	
@@ -54,10 +53,7 @@ abstract class Corporation extends Player{
 	}
 	
 	public void removeBadPublicity(int bp){
-		if (bp <= 0){
-			throw new IllegalArgumentException();
-		}
-		if (badPublicity - bp < 0){
+		if (bp <= 0 || badPublicity - bp < 0){
 			throw new IllegalArgumentException();
 		}
 		else{
