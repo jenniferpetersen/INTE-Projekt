@@ -199,7 +199,6 @@ public class Cerebral_ImagingTest {
 	public void drawCardFromRDWithOneCard() {	//kontrollerar om man kan dra kort från R&D om där ligger 1 kort
 		Cerebral_Imaging corp = new Cerebral_Imaging();
 		corp.addCardToRD(new AdonisCampaign());
-		corp.addCardToRD(new NAPD_Contract());
 		Card RDCard = corp.getTopCardRD();
 		corp.drawCard();
 		assertTrue(corp.isRDEmpty());
