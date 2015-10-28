@@ -179,9 +179,8 @@ public class Cerebral_ImagingTest {
 	@Test
 	public void drawCardTest() {	//drar kort från R&D där det ligger 2 kort
 		Cerebral_Imaging corp = new Cerebral_Imaging();
-		corp.addCardToRD(new AdonisCampaign());
-		corp.addCardToRD(new NAPD_Contract());
-		corp.addCardToRD(new NAPD_Contract());
+		corp.addCardToRD(new Card("Noise"));
+		corp.addCardToRD(new Card("Snare!"));
 		Card drawnCard = corp.getTopCardRD();
 		corp.drawCard();
 		assertFalse(corp.compareTopCardRD(drawnCard));	//ett nytt kort skall nu ligga överst i R&D, och ej vara samma som det som drogs
@@ -198,8 +197,7 @@ public class Cerebral_ImagingTest {
 	@Test
 	public void drawCardFromRDWithOneCard() {	//kontrollerar om man kan dra kort från R&D om där ligger 1 kort
 		Cerebral_Imaging corp = new Cerebral_Imaging();
-		corp.addCardToRD(new AdonisCampaign());
-		corp.addCardToRD(new NAPD_Contract());
+		corp.addCardToRD(new Card("Noise"));
 		Card RDCard = corp.getTopCardRD();
 		corp.drawCard();
 		assertTrue(corp.isRDEmpty());
@@ -209,8 +207,7 @@ public class Cerebral_ImagingTest {
 	@Test
 	public void trashCardFromHQTest() {
 		Cerebral_Imaging corp = new Cerebral_Imaging();
-		corp.addCardToRD(new AdonisCampaign());
-		corp.addCardToRD(new NAPD_Contract());
+		corp.addCardToRD(new Card("Noise"));
 		corp.drawCard();
 		corp.trashCardFromHQ(corp.getLastCardHQ());
 	}
@@ -218,17 +215,15 @@ public class Cerebral_ImagingTest {
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void trashCardFromEmptyHQTest() {
 		Cerebral_Imaging corp = new Cerebral_Imaging();
-		corp.trashCardFromHQ(new AdonisCampaign());
-		corp.trashCardFromHQ(new NAPD_Contract());
+		corp.trashCardFromHQ(new Card("Noise"));
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void trashCardNotInHQ() {
 		Cerebral_Imaging corp = new Cerebral_Imaging();
-		corp.addCardToRD(new AdonisCampaign());
-		corp.addCardToRD(new NAPD_Contract());
+		corp.addCardToRD(new Card("Noise"));
 		corp.drawCard();
-		corp.trashCardFromHQ(new NAPD_Contract());
+		corp.trashCardFromHQ(new Card("Snare!"));
 	}
 	@Test(expected = java.lang.IllegalArgumentException.class)
 	public void trashNullFromHQ() {

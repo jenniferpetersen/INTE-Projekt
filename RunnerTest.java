@@ -435,4 +435,14 @@ public class RunnerTest {
 		Cerebral_Imaging corp = new Cerebral_Imaging();
 		runner.attemptRun(corp, "Archives");
 	}
+
+	@Test
+	public void isInScoreAreaTest(){
+		Runner runner = new Runner();
+		Cerebral_Imaging corp = new Cerebral_Imaging();
+		NAPD_Contract c = new NAPD_Contract();
+		corp.addCardToHQ(c);
+		runner.attemptRun(corp, "HQ");
+		runner.isInScoreArea(c);
+	}
 }
