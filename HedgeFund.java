@@ -7,9 +7,15 @@ public class HedgeFund extends Operation{
 	}
 	
 	protected void playCard(Corporation corp){
-		corp.gainCredits(9);
-		corp.removeCardFromHQ(this);
-		corp.addCardToArchives(this);
+		if (corp.getCredits() >= this.getCost()) {
+			corp.gainCredits(9);
+			corp.removeCardFromHQ(this);
+			corp.addCardToArchives(this);
+		}
+		else {
+			throw new IllegalArgumentException("You don't have enough money to play that card!");
+		}
+
 	}
 	
 }
