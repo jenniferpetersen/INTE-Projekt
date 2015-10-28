@@ -7,12 +7,12 @@ import org.junit.Test;
 public class RunnerTest {
 
 	@Test
-	public void getClickTestR(){
+	public void getClickTest(){
 		assertEquals(4, new Runner().getClicks());
 	}
 	
 	@Test
-	public void useClickTestR(){
+	public void useClickTest(){
 		Runner runner = new Runner();
 		runner.useClick();
 		assertEquals(3, runner.getClicks());
@@ -29,7 +29,7 @@ public class RunnerTest {
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void useTooManyClicksR(){
+	public void useTooManyClicks(){
 		Runner runner = new Runner(); 
 		runner.useClick();
 		runner.useClick();
@@ -39,39 +39,39 @@ public class RunnerTest {
 	}
 	
 	@Test
-	public void gainCreditTestR(){
+	public void gainCreditTest(){
 		Runner runner = new Runner();
 		runner.gainCredits(5);
 		assertEquals(10, runner.getCredits()); 
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void gainNegativeCreditTestR(){
+	public void gainNegativeCreditTest(){
 		Runner runner = new Runner();
 		runner.gainCredits(-1); 
 	}
 	
 	@Test
-	public void loseCreditTestR(){
+	public void loseCreditTest(){
 		Runner runner = new Runner();
 		runner.loseCredits(3);
 		assertEquals(2, runner.getCredits()); 
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void loseNegativeCreditTestR(){
+	public void loseNegativeCreditTest(){
 		Runner runner = new Runner();
 		runner.loseCredits(-1); 
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void loseTooManyCreditTestR(){
+	public void loseTooManyCreditTest(){
 		Runner runner = new Runner();
 		runner.loseCredits(6);
 	}
 	
 	@Test
-	public void agendaPointsTestR(){
+	public void agendaPointsTest(){
 		assertEquals(0, new Runner().getAgendaPoints());
 		
 		Runner runner = new Runner();
@@ -89,12 +89,12 @@ public class RunnerTest {
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void agendaPointsTestNegativeR(){
+	public void agendaPointsNegativeTest(){
 		new Runner().addAgendaPoints(-1);
 	}
 	
 	@Test
-	public void maxHandSizeTestR(){
+	public void maxHandSizeTest(){
 		assertEquals(5, new Runner().getMaxHandSize());
 		
 		Runner runner = new Runner();
@@ -103,7 +103,7 @@ public class RunnerTest {
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void maxHandSizeTestNegative(){
+	public void maxHandSizeNegativeTest(){
 		Runner runner = new Runner();
 		runner.setMaxHandSize(-1);
 	}
@@ -124,26 +124,26 @@ public class RunnerTest {
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void addTagsTestNegative(){
+	public void addTagsNegativeTest(){
 		Runner runner = new Runner();
 		runner.addTag(-1);
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void removeTagsTestZero(){
+	public void removeTagsZeroTest(){
 		Runner runner = new Runner();
 		runner.removeTag(4);
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void removeTagsTestNegativeSum(){
+	public void removeTagsNegativeSumTest(){
 		Runner runner = new Runner();
 		runner.addTag(2);
 		runner.removeTag(4);	
 	}
 	
 	@Test(expected = java.lang.IllegalArgumentException.class)
-	public void removeTagsNegative(){
+	public void removeTagsNegativeTest(){
 		Runner runner = new Runner();
 		runner.removeTag(-1);
 	}
